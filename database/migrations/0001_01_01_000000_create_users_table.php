@@ -23,6 +23,7 @@ return new class extends Migration
             $table->bigInteger('points')->default(0);
             $table->boolean('is_admin')->default(1);
             $table->rememberToken();
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
 
