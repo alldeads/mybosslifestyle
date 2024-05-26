@@ -4,8 +4,12 @@ namespace App\Filament\Resources\UserResource\Pages;
 
 use App\Filament\Resources\UserResource;
 use Filament\Actions;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Form;
 use Filament\Resources\Pages\ManageRecords;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\IconColumn;
@@ -46,6 +50,7 @@ class ManageUsers extends ManageRecords
             // ])
             ->actions([
                 EditAction::make(),
+                ViewAction::make(),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
@@ -53,5 +58,27 @@ class ManageUsers extends ManageRecords
                 ]),
             ])
             ->defaultSort('created_at');
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('email')
+                    ->required(),
+                TextInput::make('referral')
+                    ->required(),
+                TextInput::make('password')
+                    ->password()
+                    ->revealable()
+                    ->required(),
+                Toggle::make('is_admin')
+                    ->label('Is Admin?')
+                    ->inline(false)
+                    ->onIcon('heroicon-m-bolt')
+                    ->offIcon('heroicon-m-user')
+            ]);
     }
 }
