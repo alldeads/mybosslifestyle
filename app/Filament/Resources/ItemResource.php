@@ -3,15 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ItemResource\Pages;
-use App\Filament\Resources\ItemResource\RelationManagers;
 use App\Models\Item;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ItemResource extends Resource
 {
@@ -23,7 +21,21 @@ class ItemResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('bio')
+                    ->columnSpanFull(),
+                Forms\Components\Textarea::make('description')
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('points')
+                    ->required()
+                    ->numeric()
+                    ->default(0.00),
+                Forms\Components\TextInput::make('quantity')
+                    ->required()
+                    ->numeric()
+                    ->default(0),
             ]);
     }
 
@@ -31,10 +43,23 @@ class ItemResource extends Resource
     {
         return $table
             ->columns([
-                //
-            ])
-            ->filters([
-                //
+                ImageColumn::make('image')
+                    ->size(80),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('points')
+                    ->prefix('₱')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('quantity')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

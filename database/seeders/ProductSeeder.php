@@ -13,8 +13,6 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        // Product::factory(5)->create();
-
         Product::create([
             'name' => 'MG Therapy Oil',
             'image' => 'products/1.png',
