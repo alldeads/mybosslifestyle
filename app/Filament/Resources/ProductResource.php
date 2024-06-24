@@ -44,8 +44,8 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')
-                    ->size(80),
+                // ImageColumn::make('image')
+                //     ->size(80),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
