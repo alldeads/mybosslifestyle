@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('redeems', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('image')->nullable();
-            $table->text('bio')->nullable();
-            $table->text('description')->nullable();
-            $table->decimal('price')->default(0);
-            $table->integer('points')->default(1);
+            $table->bigInteger('user_id');
+            $table->bigInteger('item_id');
             $table->bigInteger('quantity')->default(0);
-            $table->string('status')->default('active');
+            $table->bigInteger('points')->default(0);
+            $table->string('status')->default('pending');
+            $table->bigInteger('approved_by')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('redeems');
     }
 };

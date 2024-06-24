@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -34,7 +35,7 @@ class ProductResource extends Resource
                     ->required()
                     ->numeric()
                     ->default(0.00)
-                    ->prefix('$'),
+                    ->prefix('₱'),
                 Forms\Components\TextInput::make('quantity')
                     ->required()
                     ->numeric()
@@ -46,13 +47,14 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('image')
+                    ->size(80),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->money()
+                    ->prefix('₱')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -62,9 +64,6 @@ class ProductResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
-            ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
