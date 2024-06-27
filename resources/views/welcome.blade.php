@@ -38,7 +38,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="\">Dashboard</a>
+                            <a class="nav-link" href="\">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="\">Rewards</a>
@@ -46,12 +46,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="\">About Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Login</a>
-                        </li>
+
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                            </li>
+                        @endguest
+
                     </ul>
                 </div>
             </div>
