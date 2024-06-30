@@ -1,16 +1,3 @@
-/* ===================================
-                About
-   =================================== */
-
-/*
-    Theme Name: Trax
-    Theme URI:
-    Author: Themes Industry
-    Author URI:
-    Description: One Page , Multi Parallax Template
-    Tags: one page, multi page, multipurpose, parallax, creative, html5
-
- */
 
 /* ===================================
           Table of Contents
@@ -119,6 +106,10 @@ input:active {
 
 small {
     font-size: 60%;
+}
+
+.primary {
+    color: #C8A100 !important;
 }
 
 h1,
