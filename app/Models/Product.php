@@ -20,6 +20,7 @@ class Product extends Model
         'bio',
         'description',
         'price',
+        'dprice',
         'points',
         'quantity',
         'status'

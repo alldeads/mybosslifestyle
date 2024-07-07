@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('bio')->nullable();
             $table->text('description')->nullable();
             $table->decimal('price')->default(0);
+            $table->decimal('dprice')->default(0);
             $table->integer('points')->default(1);
             $table->bigInteger('quantity')->default(0);
             $table->string('status')->default('active');
