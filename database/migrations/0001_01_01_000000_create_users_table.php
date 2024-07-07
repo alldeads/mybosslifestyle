@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('referral')->nullable();
             $table->string('phone')->nullable();
+            $table->text('address')->nullable();
             $table->bigInteger('points')->default(0);
             $table->boolean('is_admin')->default(1);
             $table->rememberToken();

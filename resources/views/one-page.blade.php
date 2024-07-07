@@ -58,10 +58,6 @@
                     </ul>
                 </div>
             </div>
-            <!--side menu open button-->
-            <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
-                <span></span> <span></span> <span></span>
-            </a>
         </nav>
         <!-- side menu -->
         <div class="side-menu opacity-0 gradient-bg">
@@ -157,7 +153,7 @@
                             data-textalign="['center','center','center','center']" data-transform_idle="o:1;"
                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
                             data-transform_out="s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="1000"
-                            data-splitin="none" data-splitout="none"><span class="primary">S</span>upport <span class="primary">S</span>pecialist
+                            data-splitin="none" data-splitout="none"><span class="primary">S</span>olution <span class="primary">S</span>pecialist
                         </div>
                         <div class="tp-caption" data-x="['center','center','center','center']"
                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
@@ -167,7 +163,7 @@
                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
                             data-transform_out="s:900;e:Power2.easeInOut;s:900;e:Power2.easeInOut;"
                             data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;"}]'>
-                            <a href="javascript:void(0)" class="button btn-primary font-13">Get Started</a>
+                            <a href="#aboutus"  class="button btn-primary font-13">Get Started</a>
                         </div>
                     </li>
                 </ul>
@@ -180,8 +176,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 wow fadeInDown text-center text-md-start">
-                    <h3 class="heading darkcolor font-light heading_space mt-md-0 mt-3"><span>Products<span
-                            class="divider-left"></span></h3>
+                    <h3 class="heading darkcolor font-light heading_space mt-md-0 mt-3">
+                        Products<span class="divider-left"></span>
+                    </h3>
                 </div>
 
                 @foreach ($products as $product)
@@ -194,8 +191,7 @@
                                 </div> --}}
                             </div>
                             <div class="shop-content text-center">
-                                <h4 class="darkcolor"><a href="#">{{ $product->name }}</a></h4>
-                                <p>We offer the most complete in the country</p>
+                                <h4 class="darkcolor mb-2"><a href="#">{{ $product->name }}</a></h4>
                                 <h4 class="price-product">₱{{ number_format($product->price, 2, '.', ',') }}</h4>
                             </div>
                         </div>
@@ -204,6 +200,7 @@
             </div>
         </div>
     </section>
+
     <section id="rewards" class="single-feature padding">
         <div class="container">
             <div class="row">
@@ -237,13 +234,25 @@
             <div class="row d-flex align-items-center">
                 <div class="col-lg-6 col-md-7 col-sm-7 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
                     <div class="heading-title mb-4">
-                        <h2 class="darkcolor font-normal bottom30">Lets take your <span class="defaultcolor">Business</span>
-                            to Next Level</h2>
+                        <h2 class="darkcolor font-normal bottom30"><span class="defaultcolor">Mission</span></h2>
                     </div>
-                    <p class="bottom35">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris arcu,
-                        lobortis id interdum vitae, interdum eget elit. Curabitur quis urna nulla. Suspendisse potenti.
-                        Duis suscipit ultrices maximus. </p>
-                    <a href="#our-team" class="button btnsecondary gradient-btn pagescroll mb-sm-0 mb-4">Learn More</a>
+                    <p class="bottom35">To use our God given gift and wisdom that through this platform we can help as many people as we can. We aim to improve
+                    people’s lives by offering them potential solutions to their problem with the help of our carefully selected products
+                    and unique compensation program. </p>
+                </div>
+                <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
+                    <div class="image"><img alt="SEO" src="images/aboutus.png"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-6 col-md-7 col-sm-7 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
+                    <div class="heading-title mb-4">
+                        <h2 class="darkcolor font-normal bottom30"><span class="defaultcolor">Vision</span></h2>
+                    </div>
+                    <p class="bottom35">To become one of the most inspiring community helping people to become the best version of themselves.</p>
                 </div>
                 <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
                     <div class="image"><img alt="SEO" src="images/aboutus.png"></div>
