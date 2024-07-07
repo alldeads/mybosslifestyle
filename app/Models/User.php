@@ -20,6 +20,7 @@ class User extends Authenticatable implements FilamentUser
      * @var array<int, string>
      */
     protected $fillable = [
+        'parent_id',
         'name',
         'email',
         'password',
@@ -61,5 +62,10 @@ class User extends Authenticatable implements FilamentUser
     public function redeems() : HasMany
     {
         return $this->hasMany(Redeem::class);
+    }
+
+    public function direct_referrals(): HasMany
+    {
+        return $this->hasMany(User::class, 'parent_id');
     }
 }

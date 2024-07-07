@@ -11,15 +11,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Str;
 
 class RegisteredUserController extends Controller
 {
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
-        return view('auth.register');
+        return view('auth.register', [
+            'referral' => $request->get('referral', Str::random(5))
+        ]);
     }
 
     /**
@@ -37,12 +40,24 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $referral = 1; // Admin
+
+        if ($request->get('referral')) {
+            $result = User::where('referral', $request->referral_code)->first();
+
+            if ($result) {
+                $referral = $result->id;
+            }
+        }
+
         $user = User::create([
+            'parent_id' => $referral,
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
             'password' => Hash::make($request->password),
+            'referral' => strtoupper(Str::random(7)),
         ]);
 
         event(new Registered($user));
