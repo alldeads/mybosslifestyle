@@ -76,4 +76,21 @@ class User extends Authenticatable implements FilamentUser, HasName
     {
         return $this->hasMany(User::class, 'parent_id');
     }
+
+    public function downlines()
+    {
+        $downlines = 0;
+
+        foreach ($this->direct_referrals as $first) {
+            $downlines++;
+            foreach ($first->direct_referrals as $second) {
+                $downlines++;
+                foreach ($second->direct_referrals as $third) {
+                    $downlines++;
+                }
+            }
+        }
+
+        return $downlines;
+    }
 }

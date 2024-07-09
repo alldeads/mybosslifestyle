@@ -23,13 +23,13 @@
                             </p>
                         </div>
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Downlines</p>
+                            <p class="text-sm font-medium leading-6 text-gray-400">3 Levels Partner</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">30</span>
+                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->downlines() }}</span>
                             </p>
                         </div>
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Referral Code</p>
+                            <p class="text-sm font-medium leading-6 text-gray-400">Referral Link</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
                                 <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->referral }}</span>
                             </p>
