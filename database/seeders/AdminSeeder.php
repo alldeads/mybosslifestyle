@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class AdminSeeder extends Seeder
 {
@@ -14,22 +15,25 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         User::factory(1)->create([
-            'name' => 'Admin',
+            'first_name' => 'Admin',
             'email' => 'admin@admin.com',
+            'username' => Str::random(8),
             'password' => bcrypt('password'),
             'is_admin' => true
         ]);
 
         User::factory(1)->create([
-            'name' => 'Chong',
+            'first_name' => 'Chong',
             'email' => 'chong@admin.com',
+            'username' => Str::random(8),
             'password' => bcrypt('password'),
             'is_admin' => true
         ]);
 
         User::factory(1)->create([
-            'name' => 'Rex',
+            'first_name' => 'Rex',
             'email' => 'rex@admin.com',
+            'username' => Str::random(8),
             'password' => bcrypt('password'),
             'is_admin' => true
         ]);
