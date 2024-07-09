@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::create([
-            'name' => 'MG Therapy Oil',
+            'name' => 'Magnesium Therapy Oil',
             'image' => 'products/1.png',
             'bio' => 'Magnesium is an essential element required as a cofactor for over 300 enzymatic reactions and is necessary for our body to function properly',
             'description' => 'Magnesium is an essential element required as a cofactor for over 300 enzymatic reactions and is necessary for our body to function properly',
@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
-            'name' => 'MG Energy Patch',
+            'name' => '24k Gold Anti-radiation Path',
             'image' => 'products/2.png',
             'bio' => 'Approximately 90% of the world’s population owns a smart phone or a mobile phone. We use this device in multiple ways such as browsing the internet, watching movies and videos, playing games and many more. On average a person spends 8-10 hours per day using a smart phone with ages 9 to 18 years old spending longer hours. Some studies shows that prolong usage of gadgets especially the smart phone can cause brain tumor as this emits radiation that can potentially harm our health and worst cause brain tumor.',
             'description' => 'Approximately 90% of the world’s population owns a smart phone or a mobile phone. We use this device in multiple ways such as browsing the internet, watching movies and videos, playing games and many more. On average a person spends 8-10 hours per day using a smart phone with ages 9 to 18 years old spending longer hours. Some studies shows that prolong usage of gadgets especially the smart phone can cause brain tumor as this emits radiation that can potentially harm our health and worst cause brain tumor.',
