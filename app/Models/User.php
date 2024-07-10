@@ -77,6 +77,16 @@ class User extends Authenticatable implements FilamentUser, HasName
         return $this->hasMany(User::class, 'parent_id');
     }
 
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function getNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
     public function downlines()
     {
         $downlines = 0;
@@ -87,6 +97,26 @@ class User extends Authenticatable implements FilamentUser, HasName
                 $downlines++;
                 foreach ($second->direct_referrals as $third) {
                     $downlines++;
+                }
+            }
+        }
+
+        return $downlines;
+    }
+
+    public function network()
+    {
+        $downlines = collect([]);
+
+        foreach ($this->direct_referrals as $first) {
+            $first->level = 1;
+            $downlines->push($first);
+            foreach ($first->direct_referrals as $second) {
+                $second->level = 2;
+                $downlines->push($second);
+                foreach ($second->direct_referrals as $third) {
+                    $third->level = 3;
+                    $downlines->push($third);
                 }
             }
         }

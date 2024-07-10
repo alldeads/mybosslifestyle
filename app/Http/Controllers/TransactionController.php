@@ -8,6 +8,8 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        return view('transaction');
+        $transactions = auth()->user()->transactions;
+
+        return view('transaction', compact('transactions'));
     }
 }

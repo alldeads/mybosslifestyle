@@ -8,6 +8,8 @@ class GenealogyController extends Controller
 {
     public function index()
     {
-        return view('genealogy');
+        $downlines = auth()->user()->network();
+
+        return view('genealogy', compact('downlines'));
     }
 }
