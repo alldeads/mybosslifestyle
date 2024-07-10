@@ -24,6 +24,12 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('rewards')" :active="request()->routeIs('rewards')">
+                        {{ __('Rewards') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('genealogy')" :active="request()->routeIs('genealogy')">
                         {{ __('Genealogy') }}
                     </x-nav-link>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\GenealogyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RewardsController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::get('genealogy', [GenealogyController::class, 'index'])->name('genealogy');
     Route::get('transactions', [TransactionController::class, 'index'])->name('transactions');
     Route::get('products', [ProductController::class, 'index'])->name('products');
+    Route::get('rewards', [RewardsController::class, 'index'])->name('rewards');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
