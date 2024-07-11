@@ -356,9 +356,5 @@ ServerSignature Off
 	RewriteEngine On
 	RewriteCond %{HTTPS} !=on
 	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-    # Ensure the root directory serves the Laravel app
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+	RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
