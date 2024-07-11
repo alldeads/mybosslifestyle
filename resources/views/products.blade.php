@@ -20,7 +20,7 @@
                                     <li class="inline-flex w-64 flex-col text-center lg:w-auto">
                                         <div class="group relative">
                                             <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
-                                                <img src="{{ $product->image }}"
+                                                <img src="{{ asset($product->image) }}"
                                                     alt="{{ $product->bio }}"
                                                     class="h-full w-full object-cover object-center group-hover:opacity-75">
                                             </div>
