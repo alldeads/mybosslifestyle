@@ -49,12 +49,22 @@
                         <li class="nav-item">
                             <a class="nav-link pagescroll" href="#aboutus">About Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
+
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endguest
+
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </div>
@@ -124,7 +134,7 @@
                         <img src="images/slider.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
                             data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="10" data-no-retina>
                         <!-- LAYER NR. 1 -->
-                        <div class="tp-caption tp-resizeme z-index-1 font-light2 text-capitalize whitecolor"
+                        <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-140','-140']"
                             data-fontsize="['48','48','46','45']" data-whitespace="nowrap" data-responsive_offset="on"
@@ -145,7 +155,7 @@
                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1200"
                             data-splitin="none" data-splitout="none"><span class="primary">O</span>pportunity
                         </div>
-                        <div class="tp-caption tp-resizeme z-index-3 font-xlight whitecolor text-capitalize"
+                        <div class="tp-caption tp-resizeme font-bold z-index-3 font-xlight whitecolor text-capitalize"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']" data-voffset="['40','40','0','0']"
                             data-fontsize="['48','48','46','45']" data-whitespace="nowrap" data-responsive_offset="on"
