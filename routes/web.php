@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('genealogy', [GenealogyController::class, 'index'])->name('genealogy');
     Route::get('transactions', [TransactionController::class, 'index'])->name('transactions');
-    Route::get('products', [ProductController::class, 'index'])->name('products');
+    Route::get('product-items', [ProductController::class, 'index'])->name('products');
     Route::get('rewards', [RewardsController::class, 'index'])->name('rewards');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
