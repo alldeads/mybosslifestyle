@@ -51,11 +51,19 @@ class RegisteredUserController extends Controller
             }
         }
 
+        $username = str_replace(' ', '', strtolower($request->first_name) . '.' . strtolower($request->last_name));
+
+        $duplicateUsername = User::where('username', $username)->first();
+
+        if ($duplicateUsername) {
+            $username .= rand(10, 1000);
+        }
+
         $user = User::create([
             'parent_id' => $referral,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'username' => strtolower($request->first_name) . '.' . strtolower($request->last_name),
+            'username' => $username,
             'email' => $request->email,
             'phone' => $request->phone,
             'address' => $request->address,
