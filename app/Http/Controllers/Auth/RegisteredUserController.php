@@ -61,6 +61,7 @@ class RegisteredUserController extends Controller
             'address' => $request->address,
             'password' => Hash::make($request->password),
             'referral' => strtoupper(Str::random(7)),
+            'is_admin' => false
         ]);
 
         event(new Registered($user));

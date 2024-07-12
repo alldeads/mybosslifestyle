@@ -10,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -23,21 +24,28 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('parent_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('name')
+                Forms\Components\Select::make('parent_id')
+                    ->label('Upline')
+                    ->options(User::all()->pluck('name', 'id'))
+                    ->searchable()
+                    ->columnSpan(2),
+                Forms\Components\TextInput::make('username')
+                    ->hiddenOn('create'),
+                Forms\Components\TextInput::make('referral')
+                    ->hiddenOn('create'),
+                Forms\Components\TextInput::make('first_name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('last_name')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
-                    ->readOnly(),
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->required()
+                    ->email()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('referral')
-                    ->readOnly(),
                 Forms\Components\TextInput::make('phone')
                     ->tel()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('address')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('points')
                     ->required()
