@@ -31,11 +31,12 @@
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">Referral Link</p>
                             <p class="mt-2 flex flex-1 items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white referral">
-                                    <button onclick="copyText()" type="button"
+                                <span class="text-xs font-semibold tracking-tight text-white referral">
+                                    {{-- <button onclick="copyText()" type="button"
                                         class="rounded bg-white col-2 px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                                         Copy Link
-                                    </button>
+                                    </button> --}}
+                                    {{ auth()->user()->referral_link }}
                                 </span>
                             </p>
                         </div>
