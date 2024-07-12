@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
         $referral = 1; // Admin
 
         if ($request->get('referral')) {
-            $result = User::where('referral', $request->referral_code)->first();
+            $result = User::where('referral', $request->get('referral'))->first();
 
             if ($result) {
                 $referral = $result->id;
