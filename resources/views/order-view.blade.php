@@ -61,7 +61,6 @@
                                     Pick-up Location: <span class="font-medium">Nearest Stockist Depot</span>
                                 </p>
                                 <p class="mt-1 text-sm text-gray-500">
-
                                     Method of Payment: <span class="font-medium">Cash</span>
                                 </p>
                             </div>
