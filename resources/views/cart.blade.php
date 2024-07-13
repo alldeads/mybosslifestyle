@@ -74,7 +74,12 @@
                                             <dd class="ml-4 text-base font-medium text-gray-900">₱{{ auth()->user()->cart_total() }}</dd>
                                         </div>
                                     </dl>
-                                    <p class="mt-1 text-sm text-gray-500">Cash payment upon pick up.</p>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Pick-up Location: <span class="font-medium">Nearest Stockist Depot</span>
+                                    </p>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Method of Payment: <span class="font-medium">Cash</span>
+                                    </p>
                                 </div>
 
                                 <div class="mt-10">

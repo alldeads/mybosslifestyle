@@ -5,6 +5,7 @@ namespace App\Models;
 use Filament\Models\Contracts\HasName;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -87,6 +88,11 @@ class User extends Authenticatable implements FilamentUser, HasName
         return $this->hasMany(Cart::class);
     }
 
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function getNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
@@ -139,5 +145,38 @@ class User extends Authenticatable implements FilamentUser, HasName
         $total = $this->carts()->pluck('total')->sum();
 
         return number_format($total, 2, '.', ',');
+    }
+
+    public static function triggerPassUp($user_id, $points, $level=3,)
+    {
+        $user = User::find($user_id);
+
+        if (!$user) {
+            return;
+        }
+
+        // First Level
+        $user->update(['points' => $points]);
+
+        // Second Level
+        $secondUser = $user->parent;
+
+        if (!$secondUser) {
+            return;
+        }
+
+        $secondUser->update(['points' => $points]);
+
+        // Third Level
+
+        $thirdUser = $secondUser->parent;
+
+        if (!$thirdUser) {
+            return;
+        }
+
+        $thirdUser->update(['points' => $points]);
+
+        return;
     }
 }

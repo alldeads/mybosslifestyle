@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
             'bio' => 'Magnesium is an essential element required as a cofactor for over 300 enzymatic reactions and is necessary for our body to function properly',
             'description' => 'Magnesium is an essential element required as a cofactor for over 300 enzymatic reactions and is necessary for our body to function properly',
             'price' => 300,
-            'dprice' => 200,
+            'dprice' => 210,
             'quantity' => 9999,
             'status' => 'active'
         ]);
