@@ -14,7 +14,7 @@
                     </h1>
 
                     @if(count($items->toArray()) > 0)
-                        <section class="mt-2" aria-labelledby="cart-heading">
+                        <section class="mt-12" aria-labelledby="cart-heading">
                             <h2 id="cart-heading" class="sr-only">Order Items</h2>
 
                             @foreach($items as $item)
