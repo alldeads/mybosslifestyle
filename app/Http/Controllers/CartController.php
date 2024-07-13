@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 
@@ -35,8 +36,8 @@ class CartController extends Controller
             'product_id' => $request->product_id,
         ], [
             'quantity' => $quantity,
-            'price' => $product->price,
-            'total' => $product->price * $quantity
+            'price' => $product->dprice,
+            'total' => $product->dprice * $quantity
         ]);
 
         return redirect()->route('cart');
@@ -53,10 +54,11 @@ class CartController extends Controller
         $totalQty = $carts->pluck('quantity')->sum();
         $totalPoints = 0;
 
-        if ($carts && count($carts->toArray()) > 0) {
+        date_default_timezone_set('Asia/Singapore');
 
+        if ($carts && count($carts->toArray()) > 0) {
             $transaction = Transaction::create([
-                'reference' => uniqid(),
+                'reference_id' => uniqid(),
                 'user_id' => auth()->id(),
                 'total' => $totalSum,
                 'quantity' => $totalQty,
@@ -88,6 +90,14 @@ class CartController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cart = Cart::findOrFail($id);
+
+        if ($cart->user_id != auth()->id()) {
+            return redirect()->route('cart');
+        }
+
+        $cart->delete();
+
+        return redirect()->route('cart');
     }
 }

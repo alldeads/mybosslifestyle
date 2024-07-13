@@ -19,11 +19,15 @@ Route::middleware('auth')->group(function () {
 
     Route::get('genealogy', [GenealogyController::class, 'index'])->name('genealogy');
     Route::get('transactions', [TransactionController::class, 'index'])->name('transactions');
+    Route::get('transactions/{transaction}', [TransactionController::class, 'view'])->name('transaction.view');
+
     Route::get('product-items', [ProductController::class, 'index'])->name('products');
     Route::post('product-items', [CartController::class, 'store'])->name('cart.store');
     Route::get('rewards', [RewardsController::class, 'index'])->name('rewards');
+
     Route::get('cart', [CartController::class, 'index'])->name('cart');
     Route::post('cart', [CartController::class, 'submit'])->name('cart.submit');
+    Route::get('cart/{id}', [CartController::class, 'destroy'])->name('cart.remove');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
