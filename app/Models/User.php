@@ -82,6 +82,11 @@ class User extends Authenticatable implements FilamentUser, HasName
         return $this->hasMany(Transaction::class);
     }
 
+    public function carts(): HasMany
+    {
+        return $this->hasMany(Cart::class);
+    }
+
     public function getNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
@@ -127,5 +132,12 @@ class User extends Authenticatable implements FilamentUser, HasName
         }
 
         return $downlines;
+    }
+
+    public function cart_total()
+    {
+        $total = $this->carts()->pluck('total')->sum();
+
+        return number_format($total, 2, '.', ',');
     }
 }

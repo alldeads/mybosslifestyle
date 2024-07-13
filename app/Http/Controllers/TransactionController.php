@@ -8,7 +8,7 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $transactions = auth()->user()->transactions;
+        $transactions = auth()->user()->transactions()->orderBy('id', 'desc')->get();
 
         return view('transaction', compact('transactions'));
     }

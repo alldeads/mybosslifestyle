@@ -30,6 +30,9 @@
                                         Quantity
                                     </th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                        Points
+                                    </th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         Amount
                                     </th>
                                 </tr>
@@ -43,13 +46,16 @@
                                         {{ $transaction->id }}
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                        {{ $transaction->status }}
+                                        {{ ucfirst($transaction->status) }}
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                         {{ $transaction->quantity }}
                                     </td>
                                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                        {{ $transaction->amount }}
+                                        {{ $transaction->points }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        ₱{{ number_format($transaction->total, 2, '.', ',') }}
                                     </td>
                                 </tr>
                                 @empty
