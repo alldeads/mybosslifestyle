@@ -23,8 +23,21 @@ class Transaction extends Model
         'quantity',
         'points',
         'payment_method',
-        'status'
+        'status',
+        'items'
     ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'items' => 'array',
+        ];
+    }
 
     public function items(): HasMany
     {

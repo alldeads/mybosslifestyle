@@ -5,7 +5,10 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TransactionResource\Pages;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\Product;
 use Filament\Forms;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
@@ -30,6 +33,17 @@ class TransactionResource extends Resource
                     ->options(User::all()->pluck('name', 'id'))
                     ->searchable()
                     ->columnSpan(2),
+                Repeater::make('items')
+                ->schema([
+                    Select::make('product_id')
+                        ->label('Product')
+                        ->options(Product::all()->pluck('name', 'id'))
+                        ->searchable()
+                        ->columnSpan(2),
+                    TextInput::make('price')->required(),
+                    TextInput::make('quantity')->required(),
+                ])
+                ->columnSpan(2),
                 Select::make('status')
                     ->options([
                         'pending' => 'Pending',
@@ -41,9 +55,11 @@ class TransactionResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('quantity')
                     ->numeric()
+                    ->hiddenOn('edit')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('points')
                     ->required()
+                    ->hiddenOn('edit')
                     ->numeric()
                     ->default(0)
             ]);
@@ -75,12 +91,26 @@ class TransactionResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
             ->actions([
                 Tables\Actions\EditAction::make()
                     ->using(function (Model $record, array $data): Model {
+
+                        $quantity = 0;
+                        $total = 0;
+                        $points = 0;
+
+                        if (isset($data['items']) && count($data['items']) > 0) {
+                            foreach($data['items'] as $item) {
+                                $quantity += $item['quantity'];
+                                $total += $item['price'] * $item['quantity'];
+                            }
+
+                            $points = $quantity;
+
+                            $data['quantity'] = $quantity;
+                            $data['points'] = $points;
+                            $data['total'] = $total;
+                        }
 
                         if ($record->status == "pending" && $data['status'] == "paid") {
                             User::triggerPassUp($record->user_id, $data['points'] ?? 1);

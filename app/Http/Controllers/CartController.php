@@ -10,6 +10,11 @@ use App\Models\TransactionItem;
 
 class CartController extends Controller
 {
+    public function __construct()
+    {
+        date_default_timezone_set('Asia/Singapore');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -54,8 +59,6 @@ class CartController extends Controller
         $totalQty = $carts->pluck('quantity')->sum();
         $totalPoints = 0;
 
-        date_default_timezone_set('Asia/Singapore');
-
         if ($carts && count($carts->toArray()) > 0) {
             $transaction = Transaction::create([
                 'reference_id' => uniqid(),
@@ -64,16 +67,11 @@ class CartController extends Controller
                 'quantity' => $totalQty,
                 'payment_method' => 'cash upon pick up',
                 'points' => $totalPoints,
-                'status' => 'pending'
+                'status' => 'pending',
+                'items' => $carts->toArray()
             ]);
 
             foreach ($carts as $cart) {
-                $transaction->items()->create([
-                    'product_id' => $cart->product_id,
-                    'quantity' => $cart->quantity,
-                    'price' => $cart->price
-                ]);
-
                 $totalPoints += $cart->product->points * $cart->quantity;
             }
 

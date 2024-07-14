@@ -13,36 +13,38 @@
                         View Order # {{ $transaction->reference_id }}
                     </h1>
 
-                    @if(count($items->toArray()) > 0)
+                    @if($transaction->items)
                         <section class="mt-12" aria-labelledby="cart-heading">
                             <h2 id="cart-heading" class="sr-only">Order Items</h2>
 
-                            @foreach($items as $item)
-                            <ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
-                                <li class="flex py-6">
-                                    <div class="flex-shrink-0">
-                                        <img src="{{ asset($item->product->image) }}"
-                                            alt="Front side of mint cotton t-shirt with wavey lines pattern."
-                                            class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32">
-                                    </div>
+                            @foreach($transaction->items as $item)
+                                <ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
 
-                                    <div class="ml-4 flex flex-1 flex-col sm:ml-6">
-                                        <div>
-                                            <div class="flex justify-between">
-                                                <h4 class="text-sm">
-                                                    <a href="#" class="font-medium text-gray-700 hover:text-gray-800">
-                                                        {{ $item->product->name }}
-                                                    </a>
-                                                </h4>
-                                                <p class="ml-4 text-sm font-medium text-gray-900">₱{{
-                                                    number_format($item->price * $item->quantity, '2', '.', ',', ) }}</p>
-                                            </div>
-                                            <p class="mt-1 text-sm text-gray-500">{{ $item->price }}</p>
-                                            <p class="mt-1 text-sm text-gray-500">{{ $item->quantity }}</p>
+                                    @php $product = \App\Models\Product::find($item['product_id']); @endphp;
+                                    <li class="flex py-6">
+                                        <div class="flex-shrink-0">
+                                            <img src="{{ asset($product->image) }}"
+                                                alt="Front side of mint cotton t-shirt with wavey lines pattern."
+                                                class="h-24 w-24 rounded-md object-cover object-center sm:h-32 sm:w-32">
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+
+                                        <div class="ml-4 flex flex-1 flex-col sm:ml-6">
+                                            <div>
+                                                <div class="flex justify-between">
+                                                    <h4 class="text-sm">
+                                                        <a href="#" class="font-medium text-gray-700 hover:text-gray-800">
+                                                            {{ $product->name }}
+                                                        </a>
+                                                    </h4>
+                                                    <p class="ml-4 text-sm font-medium text-gray-900">₱{{
+                                                        number_format($item['price'] * $item['quantity'], '2', '.', ',', ) }}</p>
+                                                </div>
+                                                <p class="mt-1 text-sm text-gray-500">{{ $item['price'] }}</p>
+                                                <p class="mt-1 text-sm text-gray-500">{{ $item['quantity'] }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             @endforeach
                         </section>
 
