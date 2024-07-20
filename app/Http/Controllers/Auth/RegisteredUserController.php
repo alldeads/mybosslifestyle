@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Code;
 use App\Models\User;
+use App\Rules\AccountNumberRule;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -37,6 +39,7 @@ class RegisteredUserController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'min:11', 'max:11'],
             'address' => ['required', 'string', 'max:255'],
+            'number' => ['required', 'numeric', new AccountNumberRule],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -63,6 +66,7 @@ class RegisteredUserController extends Controller
             'parent_id' => $referral,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'account_number' => $request->number,
             'username' => $username,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -70,6 +74,12 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'referral' => strtoupper(Str::random(7)),
             'is_admin' => false
+        ]);
+
+        Code::where('code', $request->number)->update([
+            'is_available' => false,
+            'used_at' => now(),
+            'user_id' => $user->id
         ]);
 
         event(new Registered($user));

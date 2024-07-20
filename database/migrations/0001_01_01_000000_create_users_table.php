@@ -25,8 +25,10 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->bigInteger('points')->default(0);
             $table->boolean('is_admin')->default(1);
+            $table->string('account_number')->nullable();
             $table->rememberToken();
             $table->timestamp('deleted_at')->nullable();
+            $table->boolean('is_stockist')->default(0);
             $table->timestamps();
         });
 

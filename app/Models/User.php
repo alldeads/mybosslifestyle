@@ -32,7 +32,9 @@ class User extends Authenticatable implements FilamentUser, HasName
         'is_admin',
         'points',
         'phone',
-        'address'
+        'address',
+        'account_number',
+        'is_stockist',
     ];
 
     /**

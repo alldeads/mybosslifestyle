@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CodeResource\Pages;
 use App\Filament\Resources\CodeResource\RelationManagers;
 use App\Models\Code;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,10 +27,16 @@ class CodeResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('code')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->readOnlyOn('edit'),
                 Forms\Components\TextInput::make('user')
+                    ->readOnlyOn('edit')
                     ->formatStateUsing(fn($record) => $record->user->name ?? 'N/A'),
-                Forms\Components\DateTimePicker::make('used_at'),
+                Forms\Components\DateTimePicker::make('used_at')
+                    ->readOnlyOn('edit'),
+                Forms\Components\Select::make('stockist_id')
+                    ->label('Stockist')
+                    ->options(User::where('is_stockist', true)->pluck('first_name', 'id')),
             ]);
     }
 
@@ -56,6 +63,7 @@ class CodeResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
                 // Tables\Actions\DeleteAction::make(),
             ]);

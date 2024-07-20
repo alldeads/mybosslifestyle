@@ -12,8 +12,24 @@ class Code extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'code',
+        'user_id',
+        'used_at'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function stockist(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'stockist_id');
     }
 }

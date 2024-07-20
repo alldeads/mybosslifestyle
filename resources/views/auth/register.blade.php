@@ -3,11 +3,11 @@
         @csrf
 
         <!-- First and Last Name Container -->
-        <div class="flex space-x-4">
+        <div class="flex">
             <!-- First Name -->
             <div class="flex-1 mr-1">
                 <x-input-label for="first_name" :value="__('First Name')" />
-                <x-text-input id="first_name" class="block mt-1 w-44" type="text" name="first_name" :value="old('first_name')" required
+                <x-text-input id="first_name" class="block mt-1" type="text" name="first_name" :value="old('first_name')" required
                     autofocus autocomplete="first_name" />
                 <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
             </div>
@@ -15,10 +15,18 @@
             <!-- Last Name -->
             <div class="flex-1">
                 <x-input-label for="last_name" :value="__('Last Name')" />
-                <x-text-input id="last_name" class="block mt-1 w-44" type="text" name="last_name" :value="old('last_name')" required
+                <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required
                     autofocus autocomplete="last_name" />
                 <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
             </div>
+        </div>
+
+        <!-- Activation Number -->
+        <div>
+            <x-input-label for="number" :value="__('Account Number')" />
+            <x-text-input id="number" class="block mt-1 w-full" type="number" name="number" :value="old('number')" required
+                autofocus autocomplete="number" />
+            <x-input-error :messages="$errors->get('number')" class="mt-2" />
         </div>
 
         <!-- Contact Number -->

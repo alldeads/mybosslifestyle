@@ -50,7 +50,8 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('points')
                     ->required()
                     ->numeric()
-                    ->default(0)
+                    ->default(0),
+                Forms\Components\Toggle::make('is_stockist'),
             ]);
     }
 
