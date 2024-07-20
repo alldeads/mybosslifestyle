@@ -134,10 +134,10 @@
                         data-fsmasterspeed="1500" class="banner-overlay">
                         <!-- MAIN IMAGE -->
                         <div class="overlay overlay-dark opacity-6"></div>
-                        <img src="images/slider.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
+                        <img src="images/slider.png" alt="" data-bgposition="center center" data-bgfit="cover"
                             data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="10" data-no-retina>
                         <!-- LAYER NR. 1 -->
-                        <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
+                        {{-- <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-140','-140']"
                             data-fontsize="['48','48','46','45']" data-whitespace="nowrap" data-responsive_offset="on"
@@ -177,7 +177,7 @@
                             data-transform_out="s:900;e:Power2.easeInOut;s:900;e:Power2.easeInOut;"
                             data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;"}]'>
                             <a href="#aboutus"  class="button btn-primary font-13">Get Started</a>
-                        </div>
+                        </div> --}}
                     </li>
                 </ul>
             </div>
