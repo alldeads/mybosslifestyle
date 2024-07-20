@@ -32,7 +32,7 @@
         <nav class="navbar navbar-expand-lg transparent-bg static-nav">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="images/logo-transparent.png" alt="logo" class="logo-default">
+                    <img src="images/logo.png" alt="logo" class="logo-default">
                     <img src="images/logo.png" alt="logo" class="logo-scrolled">
                 </a>
                 <div class="collapse navbar-collapse">
