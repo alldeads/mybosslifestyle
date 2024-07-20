@@ -197,4 +197,11 @@ class User extends Authenticatable implements FilamentUser, HasName
 
         return;
     }
+
+    public function getBuilderBonus()
+    {
+        $referrals = $this->direct_referrals->count();
+
+        return 10 - ($referrals % 10);
+    }
 }

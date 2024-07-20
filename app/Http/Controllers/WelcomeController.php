@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Product;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -14,5 +15,12 @@ class WelcomeController extends Controller
             'products' => Product::all(),
             'rewards' => Item::all()
         ]);
+    }
+
+    public function dashboard()
+    {
+        $setting = Setting::all()->first();
+
+        return view('dashboard', compact('setting'));
     }
 }
