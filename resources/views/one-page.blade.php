@@ -41,6 +41,9 @@
                             <a class="nav-link active pagescroll" href="#home">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link pagescroll" href="#business">Business Presentation</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link pagescroll" href="#products">Products</a>
                         </li>
                         <li class="nav-item">
@@ -181,6 +184,25 @@
         </div>
     </section>
     <!--Main Slider ends -->
+
+    <!--Some Feature -->
+    <section id="business" class="single-feature padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow fadeInDown text-center text-md-start">
+                    <h3 class="heading darkcolor font-light heading_space mt-md-0 mt-3">
+                        Business Presentation<span class="divider-left"></span>
+                    </h3>
+                </div>
+
+                <div class="col-12 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
+                    <iframe src="https://1drv.ms/p/c/747b7c1b18875b83/IQMxnomM59V_RoK4-pDhP_p_ATGqrKlFeQrgABSTWXO6-Hk" width="100%"
+                        height="450" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--Some Feature -->
     <section id="products" class="single-feature padding">
         <div class="container">
