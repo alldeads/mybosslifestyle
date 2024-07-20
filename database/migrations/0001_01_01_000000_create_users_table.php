@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
             $table->bigInteger('points')->default(0);
+            $table->bigInteger('stockist_points')->default(0);
             $table->boolean('is_admin')->default(1);
             $table->string('account_number')->nullable();
             $table->rememberToken();

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('reference_id')->nullable();
             $table->bigInteger('user_id');
+            $table->bigInteger('stockist_id')->nullable();
             $table->decimal('total')->default(0);
             $table->bigInteger('quantity')->default(0);
             $table->bigInteger('points')->default(0);

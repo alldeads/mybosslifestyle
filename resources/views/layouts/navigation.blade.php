@@ -35,11 +35,19 @@
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('transactions')" :active="request()->routeIs('transactions')">
-                        {{ __('Transactions') }}
-                    </x-nav-link>
-                </div>
+                @if (auth()->user()->is_stockist)
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('stockist')" :active="request()->routeIs('stockist')">
+                            {{ __('Stockist') }}
+                        </x-nav-link>
+                    </div>
+                @else
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('transactions')" :active="request()->routeIs('transactions')">
+                            {{ __('Transactions') }}
+                        </x-nav-link>
+                    </div>
+                @endif
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('cart')" :active="request()->routeIs('cart')">

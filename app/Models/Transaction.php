@@ -18,6 +18,7 @@ class Transaction extends Model
     protected $fillable = [
         'reference_id',
         'user_id',
+        'stockist_id',
         'total',
         'quantity',
         'points',

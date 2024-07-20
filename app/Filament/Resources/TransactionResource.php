@@ -74,8 +74,6 @@ class TransactionResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('points'),
-                Tables\Columns\TextColumn::make('total'),
-                Tables\Columns\TextColumn::make('quantity'),
                 Tables\Columns\TextColumn::make('status')
                     ->color(fn (string $state): string => match ($state) {
                         'pending' => 'warning',

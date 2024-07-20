@@ -5,6 +5,7 @@ use App\Http\Controllers\GenealogyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RewardsController;
+use App\Http\Controllers\StockistController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('stockists', [StockistController::class, 'index'])->name('stockist');
+    Route::post('stockists', [StockistController::class, 'store'])->name('stockist.store');
 
     Route::get('genealogy', [GenealogyController::class, 'index'])->name('genealogy');
     Route::get('transactions', [TransactionController::class, 'index'])->name('transactions');

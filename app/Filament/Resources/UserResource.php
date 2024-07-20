@@ -51,6 +51,9 @@ class UserResource extends Resource
                     ->required()
                     ->numeric()
                     ->default(0),
+                Forms\Components\TextInput::make('stockist_points')
+                    ->numeric()
+                    ->default(0),
                 Forms\Components\Toggle::make('is_stockist'),
             ]);
     }
@@ -59,6 +62,8 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('account_number')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
