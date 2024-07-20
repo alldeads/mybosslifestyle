@@ -23,7 +23,7 @@
                                         </div>
                                         <div class="relative mt-4">
                                             <h3 class="text-sm font-medium text-gray-900">{{ $product->name }}</h3>
-                                            <p class="mt-1 text-sm text-gray-500">{{ \Str::limit($product->bio, 40) }}</p>
+                                            <p class="mt-1 text-sm text-gray-500">{{ $product->bio }}</p>
                                         </div>
                                         <div class="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">
                                             <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50">
@@ -31,7 +31,7 @@
                                             <p class="relative text-lg font-semibold text-white">₱{{ $product->dprice }}</p>
                                         </div>
                                     </div>
-                                    <div class="mt-6">
+                                    {{-- <div class="mt-6">
                                         <div class="mb-2">
                                             <label for="quantity" class="sr-only">Quantity</label>
                                             <input type="number" name="quantity" id="quantity"
@@ -41,7 +41,7 @@
                                         <a onclick="event.preventDefault(); this.closest('form').submit();" class="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 cursor-pointer">
                                             Add to bag<span class="sr-only">, {{ $product->name }}</span>
                                         </a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </form>
                         @endforeach

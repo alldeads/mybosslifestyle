@@ -76,9 +76,9 @@ class UserResource extends Resource
                 Tables\Columns\IconColumn::make('is_admin')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Joined On')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
