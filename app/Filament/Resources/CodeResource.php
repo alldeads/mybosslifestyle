@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Columns\IconColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -36,7 +37,8 @@ class CodeResource extends Resource
                     ->readOnlyOn('edit'),
                 Forms\Components\Select::make('stockist_id')
                     ->label('Stockist')
-                    ->options(User::where('is_stockist', true)->pluck('first_name', 'id')),
+                    ->options(User::where('is_stockist', true)->get()->pluck('name', 'id'))
+                    ->searchable(),
             ]);
     }
 
@@ -60,7 +62,10 @@ class CodeResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('stockist_id')
+                    ->label('Stockist')
+                    ->options(User::where('is_stockist', true)->get()->pluck('name', 'id'))
+                    ->multiple(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

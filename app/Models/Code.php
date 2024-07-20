@@ -20,7 +20,8 @@ class Code extends Model
     protected $fillable = [
         'code',
         'user_id',
-        'used_at'
+        'used_at',
+        'stockist_id'
     ];
 
     public function user(): BelongsTo

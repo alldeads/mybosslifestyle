@@ -83,7 +83,9 @@ class UserResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
                 Filter::make('customers')
                     ->query(fn(Builder $query): Builder => $query->where('is_admin', false))
-                    ->default()
+                    ->default(),
+                Filter::make('stockists')
+                    ->query(fn(Builder $query): Builder => $query->where('is_stockist', true))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
