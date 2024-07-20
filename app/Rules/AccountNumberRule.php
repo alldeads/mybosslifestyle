@@ -21,7 +21,7 @@ class AccountNumberRule implements ValidationRule
         ])->first();
 
         if (!$result) {
-            $fail('Account number is not valid');
+            $fail('Account number is not valid.');
         }
     }
 }

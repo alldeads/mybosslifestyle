@@ -158,7 +158,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $user->update(['points' => $points]);
+        $userPoints = (int) $user->points;
+
+        $user->update(['points' => $userPoints + $points]);
 
         // First Level
         $firstUser = $user->parent;
@@ -167,7 +169,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $firstUser->update(['points' => $points]);
+        $firstUserPoints = (int) $firstUser->points;
+
+        $firstUser->update(['points' => $firstUserPoints + $points]);
 
         // Second Level
         $secondUser = $firstUser->parent;
@@ -176,7 +180,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $secondUser->update(['points' => $points]);
+        $secondUserPoints = (int) $secondUser->points;
+
+        $secondUser->update(['points' => $secondUserPoints + $points]);
 
         // Third Level
         $thirdUser = $secondUser->parent;
@@ -185,7 +191,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $thirdUser->update(['points' => $points]);
+        $thirdUserPoints = (int) $thirdUser->points;
+
+        $thirdUser->update(['points' => $thirdUserPoints + $points]);
 
         return;
     }
