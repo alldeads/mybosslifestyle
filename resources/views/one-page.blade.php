@@ -71,51 +71,52 @@
                     </ul>
                 </div>
             </div>
+
+            <!--side menu open button-->
+            <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
+                <span></span> <span></span> <span></span>
+            </a>
         </nav>
         <!-- side menu -->
-        <div class="side-menu opacity-0 gradient-bg">
+        <div class="side-menu opacity-0">
             <div class="overlay"></div>
             <div class="inner-wrapper">
                 <span class="btn-close btn-close-no-padding" id="btn_sideNavClose"><i></i><i></i></span>
                 <nav class="side-nav w-100">
                     <ul class="navbar-nav">
                         <li class="nav-item position-relative">
-                            <a class="nav-link pagescroll" href="#home">Home</a>
+                            <a class="nav-link active pagescroll" href="#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#our-process">About</a>
+                            <a class="nav-link pagescroll" href="#business">Business Presentation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#our-apps">Service</a>
+                            <a class="nav-link pagescroll" href="#products">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#our-team">Team</a>
+                            <a class="nav-link pagescroll" href="#rewards">Rewards</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#pricing">Pricing</a>
+                            <a class="nav-link pagescroll" href="#aboutus">About Us</a>
                         </li>
+
+                        @guest
                         <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#gallery">Gallery</a>
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
                         </li>
+                        @endguest
+
+                        @auth
                         <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#our-testimonial">Testimonial</a>
+                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
+                        @else
                         <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#blog">Blog</a>
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link pagescroll" href="#contact">Contact</a>
-                        </li>
+                        @endauth
                     </ul>
                 </nav>
-                <div class="side-footer w-100">
-                    <ul class="social-icons-simple white top40">
-                        <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i> </a> </li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i> </a> </li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i> </a> </li>
-                    </ul>
-                    <p class="whitecolor">&copy; <span id="year"></span> Trax. Made With Love by ThemesIndustry</p>
-                </div>
             </div>
         </div>
         <div id="close_side_menu" class="tooltip"></div>
@@ -133,11 +134,11 @@
                         data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="2000"
                         data-fsmasterspeed="1500" class="banner-overlay">
                         <!-- MAIN IMAGE -->
-                        <div class="opacity-6"></div>
-                        <img src="images/slider.png" alt="" data-bgposition="center center" data-bgfit="cover"
+                        <div class="overlay overlay-dark opacity-6"></div>
+                        <img src="images/slider2.png" alt="" data-bgposition="center center" data-bgfit="cover"
                             data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="10" data-no-retina>
                         <!-- LAYER NR. 1 -->
-                        {{-- <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
+                        <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
                             data-y="['middle','middle','middle','middle']" data-voffset="['-100','-100','-140','-140']"
                             data-fontsize="['48','48','46','45']" data-whitespace="nowrap" data-responsive_offset="on"
@@ -177,7 +178,7 @@
                             data-transform_out="s:900;e:Power2.easeInOut;s:900;e:Power2.easeInOut;"
                             data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;"}]'>
                             <a href="#aboutus"  class="button btn-primary font-13">Get Started</a>
-                        </div> --}}
+                        </div>
                     </li>
                 </ul>
             </div>
