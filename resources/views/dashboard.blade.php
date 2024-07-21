@@ -34,7 +34,7 @@
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">Company Share Bonus</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">{{ $setting->share_bonus }}</span>
+                                <span class="text-4xl font-semibold tracking-tight text-white">₱{{ number_format($setting->share_bonus, 0, ',') }}</span>
                             </p>
                         </div>
                     </div>
