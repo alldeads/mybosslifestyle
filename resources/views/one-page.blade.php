@@ -216,7 +216,7 @@
                 @foreach ($products as $product)
                     <div class="col-lg-3 col-md-6 col-sm-6 wow fadeIn" data-wow-delay="300ms">
                         <div class="shopping-box top20">
-                            <div class="image sale" data-sale="30">
+                            <div class="image" data-sale="30">
                                 <img src="{{ $product->image }}" alt="shop">
                                 {{-- <div class="overlay center-block">
                                     <a class="opens" href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
