@@ -31,7 +31,7 @@
     <header class="site-header" id="header">
         <nav class="navbar navbar-expand-lg transparent-bg static-nav">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src="images/logo.png" alt="logo" class="logo-default">
                     <img src="images/logo.png" alt="logo" class="logo-scrolled">
                 </a>
@@ -135,7 +135,7 @@
                         data-fsmasterspeed="1500" class="banner-overlay">
                         <!-- MAIN IMAGE -->
                         <div class="overlay overlay-dark opacity-6"></div>
-                        <img src="images/slider2.png" alt="" data-bgposition="center center" data-bgfit="cover"
+                        <img src="images/slider3.png" alt="" data-bgposition="center center" data-bgfit="cover"
                             data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="10" data-no-retina>
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
