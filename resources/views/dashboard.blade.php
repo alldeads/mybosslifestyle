@@ -24,21 +24,12 @@
                             </p>
                         </div>
 
-                        @if(auth()->user()->is_stockist)
-                            <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                                <p class="text-sm font-medium leading-6 text-gray-400">Points Credit</p>
-                                <p class="mt-2 flex items-baseline gap-x-2">
-                                    <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->stockist_points }}</span>
-                                </p>
-                            </div>
-                        @else
-                            <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                                <p class="text-sm font-medium leading-6 text-gray-400">Claimed Rewards</p>
-                                <p class="mt-2 flex items-baseline gap-x-2">
-                                    <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->redeems()->count() }}</span>
-                                </p>
-                            </div>
-                        @endif
+                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                            <p class="text-sm font-medium leading-6 text-gray-400">Claimed Rewards</p>
+                            <p class="mt-2 flex items-baseline gap-x-2">
+                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->redeems()->count() }}</span>
+                            </p>
+                        </div>
 
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">Company Share Bonus</p>
@@ -71,28 +62,13 @@
                             </p>
                         </div>
 
-                        @if(auth()->user()->is_stockist)
-                            <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                                <p class="text-sm font-medium leading-6 text-gray-400">Claimed Rewards</p>
-                                <p class="mt-2 flex items-baseline gap-x-2">
-                                    <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->redeems()->count() }}</span>
-                                </p>
-                            </div>
-                        @endif
-
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">3 Levels Partner</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
                                 <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->downlines() }}</span>
                             </p>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="bg-gray-900 mt-2">
-                <div class="mx-auto max-w-7xl">
-                    <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">Referral Link</p>
                             <p class="mt-2 flex flex-1 items-baseline gap-x-2">
@@ -108,6 +84,21 @@
                     </div>
                 </div>
             </div>
+
+            @if(auth()->user()->is_stockist)
+                <div class="bg-gray-900 mt-2">
+                    <div class="mx-auto max-w-7xl">
+                        <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
+                            <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                                <p class="text-sm font-medium leading-6 text-gray-400">Points Credit</p>
+                                <p class="mt-2 flex items-baseline gap-x-2">
+                                    <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->stockist_points }}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
 
         <input style="visibility: hidden;" id="referral-link" type="text" value="{{ auth()->user()->referral_link }}">
