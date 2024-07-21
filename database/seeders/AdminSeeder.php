@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Setting;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -36,6 +37,10 @@ class AdminSeeder extends Seeder
             'username' => Str::random(8),
             'password' => bcrypt('password'),
             'is_admin' => true
+        ]);
+
+        Setting::create([
+            'share_bonus' => 0
         ]);
     }
 }

@@ -35,7 +35,8 @@ class User extends Authenticatable implements FilamentUser, HasName
         'address',
         'account_number',
         'is_stockist',
-        'stockist_points'
+        'stockist_points',
+        'claimed_points'
     ];
 
     /**
@@ -203,5 +204,25 @@ class User extends Authenticatable implements FilamentUser, HasName
         $referrals = $this->direct_referrals->count();
 
         return 10 - ($referrals % 10);
+    }
+
+    public function getPersonalPoints()
+    {
+        $transactionPoints = $this->transactions()->sum('points');
+
+        return $transactionPoints;
+    }
+
+    public function getPassUpPoints()
+    {
+        $personalPoints = $this->getPersonalPoints();
+
+        $currrentPoints = $this->points;
+
+        if ($currrentPoints == 0 || $currrentPoints < $personalPoints) {
+            return 0;
+        }
+
+        return $currrentPoints - $personalPoints;
     }
 }

@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
     {
         Product::create([
             'name' => 'Magnesium Therapy Oil',
-            'image' => 'products/1.png',
+            'image' => 'products/1.jpg',
             'bio' => 'Magnesium is an essential element required as a cofactor for over 300 enzymatic reactions and is necessary for our body to function properly',
             'description' => 'Magnesium is an essential element required as a cofactor for over 300 enzymatic reactions and is necessary for our body to function properly',
             'price' => 300,
@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'name' => '24k Gold Anti-radiation Path',
-            'image' => 'products/2.png',
+            'image' => 'products/2.jpg',
             'bio' => 'Approximately 90% of the world’s population owns a smart phone or a mobile phone. We use this device in multiple ways such as browsing the internet, watching movies and videos, playing games and many more. On average a person spends 8-10 hours per day using a smart phone with ages 9 to 18 years old spending longer hours. Some studies shows that prolong usage of gadgets especially the smart phone can cause brain tumor as this emits radiation that can potentially harm our health and worst cause brain tumor.',
             'description' => 'Approximately 90% of the world’s population owns a smart phone or a mobile phone. We use this device in multiple ways such as browsing the internet, watching movies and videos, playing games and many more. On average a person spends 8-10 hours per day using a smart phone with ages 9 to 18 years old spending longer hours. Some studies shows that prolong usage of gadgets especially the smart phone can cause brain tumor as this emits radiation that can potentially harm our health and worst cause brain tumor.',
             'price' => 500,
@@ -37,7 +37,7 @@ class ProductSeeder extends Seeder
 
         Product::create([
             'name' => 'Titan Oil',
-            'image' => 'products/3.png',
+            'image' => 'products/3.jpg',
             'bio' => 'Magnesium is an essential element required as a cofactor for over 300 enzymatic reactions and is necessary for our body to function properly',
             'description' => 'Applying titan oil to a man’s sexual organ greatly reduces the risk of prostate problem in the future as this contains safe and effective plant base minerals.
 

@@ -30,6 +30,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamp('deleted_at')->nullable();
             $table->boolean('is_stockist')->default(0);
+            $table->bigInteger('claimed_points')->default(0);
             $table->timestamps();
         });
 
