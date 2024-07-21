@@ -133,7 +133,7 @@
                         data-easein="Power3.easeInOut" data-easeout="Power3.easeInOut" data-masterspeed="2000"
                         data-fsmasterspeed="1500" class="banner-overlay">
                         <!-- MAIN IMAGE -->
-                        <div class="overlay overlay-dark opacity-6"></div>
+                        <div class="opacity-6"></div>
                         <img src="images/slider.png" alt="" data-bgposition="center center" data-bgfit="cover"
                             data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="10" data-no-retina>
                         <!-- LAYER NR. 1 -->
