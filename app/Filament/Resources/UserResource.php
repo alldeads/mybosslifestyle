@@ -65,7 +65,11 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('account_number')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                      ->searchable(query: function (Builder $query, string $search): Builder {
+                            return $query
+                                ->where('first_name', 'like', "%{$search}%")
+                                ->orWhere('last_name', 'like', "%{$search}%");
+                        }),
                 Tables\Columns\TextColumn::make('email')
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('referral')
