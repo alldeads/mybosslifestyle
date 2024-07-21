@@ -177,7 +177,7 @@
                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:1500;e:Power4.easeInOut;"
                             data-transform_out="s:900;e:Power2.easeInOut;s:900;e:Power2.easeInOut;"
                             data-frames='[{"delay":700,"speed":2000,"frame":"0","from":"sX:1;sY:1;opacity:0;fb:40px;","to":"o:1;fb:0;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;"}]'>
-                            <a href="#aboutus"  class="button btn-primary font-13">Get Started</a>
+                            <a href="#business"  class="button btn-primary font-13">Get Started</a>
                         </div>
                     </li>
                 </ul>
