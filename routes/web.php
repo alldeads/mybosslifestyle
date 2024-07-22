@@ -25,7 +25,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('product-items', [ProductController::class, 'index'])->name('products');
     Route::post('product-items', [CartController::class, 'store'])->name('cart.store');
+
     Route::get('rewards', [RewardsController::class, 'index'])->name('rewards');
+    Route::post('rewards', [RewardsController::class, 'store'])->name('rewards.claim');
+    Route::get('history', [RewardsController::class, 'history'])->name('history');
 
     Route::get('cart', [CartController::class, 'index'])->name('cart');
     Route::post('cart', [CartController::class, 'submit'])->name('cart.submit');

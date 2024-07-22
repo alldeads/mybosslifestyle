@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('redeems', function (Blueprint $table) {
             $table->id();
+            $table->string('reference_id')->nullable();
             $table->bigInteger('user_id');
             $table->bigInteger('item_id');
             $table->bigInteger('quantity')->default(0);

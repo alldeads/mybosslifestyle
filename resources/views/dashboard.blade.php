@@ -11,6 +11,13 @@
                 <div class="mx-auto max-w-7xl">
                     <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                            <p class="text-sm font-medium leading-6 text-gray-400">Available Points</p>
+                            <p class="mt-2 flex items-baseline gap-x-2">
+                                <marquee><span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->getAvailablePoints() }}</span></marquee>
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">Personal Points</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
                                 <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->personal_points }}</span>
@@ -21,13 +28,6 @@
                             <p class="text-sm font-medium leading-6 text-gray-400">Pass Up Points</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
                                 <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->pass_up_points }}</span>
-                            </p>
-                        </div>
-
-                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Claimed Rewards</p>
-                            <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->redeems()->count() }}</span>
                             </p>
                         </div>
 

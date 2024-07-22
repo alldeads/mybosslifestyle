@@ -208,23 +208,10 @@ class User extends Authenticatable implements FilamentUser, HasName
         return 10 - ($referrals % 10);
     }
 
-    public function getPersonalPoints()
+    public function getAvailablePoints()
     {
-        $transactionPoints = $this->transactions()->sum('points');
+        $points = ($this->personal_points + $this->pass_up_points) - $this->claimed_points;
 
-        return $transactionPoints;
-    }
-
-    public function getPassUpPoints()
-    {
-        $personalPoints = $this->getPersonalPoints();
-
-        $currentPoints = $this->points;
-
-        if ($currentPoints == 0 || $currentPoints < $personalPoints) {
-            return 0;
-        }
-
-        return $currentPoints - $personalPoints;
+        return $points < 0 ? 0 : $points;
     }
 }
