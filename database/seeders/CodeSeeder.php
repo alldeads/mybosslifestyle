@@ -15,5 +15,7 @@ class CodeSeeder extends Seeder
     {
         Code::factory(250)->create();
         Code::factory(250)->create();
+        Code::factory(250)->create();
+        Code::factory(250)->create();
     }
 }
