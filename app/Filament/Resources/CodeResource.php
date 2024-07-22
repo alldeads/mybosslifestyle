@@ -47,6 +47,7 @@ class CodeResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('code')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_available')
                     ->label('Is Available')
