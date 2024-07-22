@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('points')->default(0);
             $table->string('status')->default('pending');
             $table->bigInteger('approved_by')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

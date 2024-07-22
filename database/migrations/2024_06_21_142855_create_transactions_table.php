@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('payment_method')->default('cash');
             $table->string('status')->default('pending');
             $table->json('items')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('stockist_id')->nullable();
             $table->bigInteger('generated_by')->nullable();
             $table->timestamp('used_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
