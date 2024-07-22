@@ -54,7 +54,7 @@ class UserResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('address')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('points')
+                Forms\Components\TextInput::make('personal_points')
                     ->required()
                     ->numeric()
                     ->default(0),
@@ -81,7 +81,7 @@ class UserResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('referral')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('points')
+                Tables\Columns\TextColumn::make('personal_points')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_admin')

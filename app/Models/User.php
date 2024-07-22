@@ -36,7 +36,9 @@ class User extends Authenticatable implements FilamentUser, HasName
         'account_number',
         'is_stockist',
         'stockist_points',
-        'claimed_points'
+        'claimed_points',
+        'personal_points',
+        'pass_up_points'
     ];
 
     /**
@@ -159,9 +161,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $userPoints = (int) $user->points;
+        $userPoints = (int) $user->personal_points;
 
-        $user->update(['points' => $userPoints + $points]);
+        $user->update(['personal_points' => $userPoints + $points]);
 
         // First Level
         $firstUser = $user->parent;
@@ -170,9 +172,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $firstUserPoints = (int) $firstUser->points;
+        $firstUserPoints = (int) $firstUser->pass_up_points;
 
-        $firstUser->update(['points' => $firstUserPoints + $points]);
+        $firstUser->update(['pass_up_points' => $firstUserPoints + $points]);
 
         // Second Level
         $secondUser = $firstUser->parent;
@@ -181,9 +183,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $secondUserPoints = (int) $secondUser->points;
+        $secondUserPoints = (int) $secondUser->pass_up_points;
 
-        $secondUser->update(['points' => $secondUserPoints + $points]);
+        $secondUser->update(['pass_up_points' => $secondUserPoints + $points]);
 
         // Third Level
         $thirdUser = $secondUser->parent;
@@ -192,9 +194,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $thirdUserPoints = (int) $thirdUser->points;
+        $thirdUserPoints = (int) $thirdUser->pass_up_points;
 
-        $thirdUser->update(['points' => $thirdUserPoints + $points]);
+        $thirdUser->update(['pass_up_points' => $thirdUserPoints + $points]);
 
         return;
     }
@@ -217,12 +219,12 @@ class User extends Authenticatable implements FilamentUser, HasName
     {
         $personalPoints = $this->getPersonalPoints();
 
-        $currrentPoints = $this->points;
+        $currentPoints = $this->points;
 
-        if ($currrentPoints == 0 || $currrentPoints < $personalPoints) {
+        if ($currentPoints == 0 || $currentPoints < $personalPoints) {
             return 0;
         }
 
-        return $currrentPoints - $personalPoints;
+        return $currentPoints - $personalPoints;
     }
 }

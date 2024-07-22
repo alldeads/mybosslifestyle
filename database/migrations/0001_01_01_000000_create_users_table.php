@@ -31,6 +31,8 @@ return new class extends Migration
             $table->timestamp('deleted_at')->nullable();
             $table->boolean('is_stockist')->default(0);
             $table->bigInteger('claimed_points')->default(0);
+            $table->bigInteger('pass_up_points')->default(0);
+            $table->bigInteger('personal_points')->default(0);
             $table->timestamps();
         });
 
