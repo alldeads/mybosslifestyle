@@ -75,7 +75,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="4" class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-center font-medium text-gray-900 sm:pl-6 lg:pl-8">
+                                    <td colspan="6" class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-center font-medium text-gray-900 sm:pl-6 lg:pl-8">
                                         No records found.
                                     </td>
                                 </tr>
