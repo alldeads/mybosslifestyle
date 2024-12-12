@@ -90,7 +90,7 @@
                             data-type="text" data-textAlign="['center','center','center','center']"
                             data-responsive_offset="on" data-start="1000"
                             data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'>
-                            <h1 class="text-capitalize font-xlight text-center" style="color: #C8A100;">Building</h1>
+                            <h1 class="text-capitalize font-xlight text-center" style="color: #218C23;">Building</h1>
                         </div>
                         <!-- LAYER NR. 2 -->
                         <div class="tp-caption tp-resizeme" data-x="['center','center','center','center']"
@@ -108,7 +108,7 @@
                             data-textAlign="['center','center','center','center']" data-responsive_offset="on"
                             data-start="1500"
                             data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'>
-                            <h1 class="text-capitalize font-xlight text-center" style="color: #C8A100;">Solution Specialist</h1>
+                            <h1 class="text-capitalize font-xlight text-center" style="color: #218C23;">Solution Specialist</h1>
                         </div>
                         <!-- LAYER NR. 4 -->
                         <div class="tp-caption tp-resizeme" data-x="['center','center','center','center']"
@@ -118,7 +118,7 @@
                             data-textAlign="['center','center','center','center']" data-responsive_offset="on"
                             data-start="2000"
                             data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'>
-                            <h4 class="font-light text-center" style="color: #C8A100;">USE | SHARE | EARN</h4>
+                            <h4 class="font-light text-center" style="color: #218C23;">USE | SHARE | EARN</h4>
                         </div>
                     </li>
                     <!-- SLIDE 2 -->

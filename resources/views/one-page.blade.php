@@ -135,7 +135,7 @@
                         data-fsmasterspeed="1500" class="banner-overlay">
                         <!-- MAIN IMAGE -->
                         <div class="overlay overlay-dark opacity-6"></div>
-                        <img src="images/slider3.png" alt="" data-bgposition="center center" data-bgfit="cover"
+                        <img src="images/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
                             data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="10" data-no-retina>
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
@@ -197,8 +197,8 @@
                 </div>
 
                 <div class="col-12 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
-                    <iframe src="https://1drv.ms/p/c/747b7c1b18875b83/IQMxnomM59V_RoK4-pDhP_p_ATGqrKlFeQrgABSTWXO6-Hk" width="100%"
-                        height="450" frameborder="0" scrolling="no"></iframe>
+                    <iframe src="https://1drv.ms/p/c/747b7c1b18875b83/IQREGkTcMy0bSanLs7eSXUtNAbJ5yYfN2RomSJuqTT_qX4I" width="100%"
+                        height="500" frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
         </div>
@@ -214,14 +214,11 @@
                     </h3>
                 </div>
 
-                @foreach ($products as $product)
+                {{-- @foreach ($products as $product)
                     <div class="col-lg-3 col-md-6 col-sm-6 wow fadeIn" data-wow-delay="300ms">
                         <div class="shopping-box top20">
                             <div class="image" data-sale="30">
                                 <img src="{{ $product->image }}" alt="shop">
-                                {{-- <div class="overlay center-block">
-                                    <a class="opens" href="#" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
-                                </div> --}}
                             </div>
                             <div class="shop-content text-center">
                                 <h4 class="darkcolor mb-2"><a href="#">{{ $product->name }}</a></h4>
@@ -229,7 +226,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
     </section>
@@ -243,21 +240,18 @@
                     </h3>
                 </div>
 
-                @foreach ($rewards as $reward)
+                {{-- @foreach ($rewards as $reward)
                     <div class="col-lg-3 col-md-6 col-sm-6 wow fadeIn" data-wow-delay="300ms">
                         <div class="shopping-box top20">
                             <div class="image">
                                 <img src="{{ $reward->image }}" alt="shop">
-                                {{-- <div class="overlay center-block">
-                                    <a class="opens" href="shop-cart.html" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a>
-                                </div> --}}
                             </div>
                             <div class="shop-content text-center">
                                 <h4 class="darkcolor"><a href="shop-detail.html">{{ $reward->name }}</a></h4>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
     </section>
