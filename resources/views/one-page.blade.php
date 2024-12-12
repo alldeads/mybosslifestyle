@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>B.O.S.S</title>
+    <title>Famguard</title>
     <link href="images/favicon.ico" rel="icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.min.css">
@@ -146,7 +146,7 @@
                             data-textalign="['center','center','center','center']" data-transform_idle="o:1;"
                             data-transform_in="x:-50px;opacity:0;s:2000;e:Power3.easeOut;"
                             data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="1000"
-                            data-splitin="none" data-splitout="none"><span class="primary">B</span>uilding
+                            data-splitin="none" data-splitout="none"><span class="primary">P</span>ray
                         </div>
                         <div class="tp-caption tp-resizeme font-bold z-index-2 text-capitalize whitecolor"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -157,7 +157,7 @@
                             data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
                             data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
                             data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1200"
-                            data-splitin="none" data-splitout="none"><span class="primary">O</span>pportunity
+                            data-splitin="none" data-splitout="none"><span class="primary">S</span>pray
                         </div>
                         <div class="tp-caption tp-resizeme font-bold z-index-3 font-xlight whitecolor text-capitalize"
                             data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
@@ -167,7 +167,7 @@
                             data-textalign="['center','center','center','center']" data-transform_idle="o:1;"
                             data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
                             data-transform_out="s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="1000"
-                            data-splitin="none" data-splitout="none"><span class="primary">S</span>olution <span class="primary">S</span>pecialist
+                            data-splitin="none" data-splitout="none"><span class="primary">A</span>nd <span class="primary">P</span>lay
                         </div>
                         <div class="tp-caption" data-x="['center','center','center','center']"
                             data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
