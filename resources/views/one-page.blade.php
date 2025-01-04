@@ -263,9 +263,8 @@
                     <div class="heading-title mb-4">
                         <h2 class="darkcolor font-normal bottom30"><span class="defaultcolor">Mission</span></h2>
                     </div>
-                    <p class="bottom35">To use our God given gift and wisdom that through this platform we can help as many people as we can. We aim to improve
-                    people’s lives by offering them potential solutions to their problem with the help of our carefully selected products
-                    and unique compensation program. </p>
+                    <p class="bottom35">Our mission is to empower families and communities to enjoy the outdoors, free from the threat of mosquitoes and
+                    mosquito-borne illnesses. </p>
                 </div>
                 <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
                     <div class="image"><img alt="SEO" src="images/aboutus.png"></div>
@@ -279,7 +278,8 @@
                     <div class="heading-title mb-4">
                         <h2 class="darkcolor font-normal bottom30"><span class="defaultcolor">Vision</span></h2>
                     </div>
-                    <p class="bottom35">To become one of the most inspiring community helping people to become the best version of themselves.</p>
+                    <p class="bottom35">Empowering a world where everyone can live, and children can play and thrive without the threat of mosquitoes and
+                    mosquito-borne illnesses.</p>
                 </div>
                 <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
                     <div class="image"><img alt="SEO" src="images/aboutus.png"></div>
