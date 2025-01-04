@@ -214,7 +214,7 @@
                     </h3>
                 </div>
 
-                {{-- @foreach ($products as $product)
+                @foreach ($products as $product)
                     <div class="col-lg-3 col-md-6 col-sm-6 wow fadeIn" data-wow-delay="300ms">
                         <div class="shopping-box top20">
                             <div class="image" data-sale="30">
@@ -226,7 +226,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach --}}
+                @endforeach
             </div>
         </div>
     </section>
@@ -240,7 +240,7 @@
                     </h3>
                 </div>
 
-                {{-- @foreach ($rewards as $reward)
+                @foreach ($rewards as $reward)
                     <div class="col-lg-3 col-md-6 col-sm-6 wow fadeIn" data-wow-delay="300ms">
                         <div class="shopping-box top20">
                             <div class="image">
@@ -251,7 +251,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach --}}
+                @endforeach
             </div>
         </div>
     </section>
