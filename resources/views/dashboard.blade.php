@@ -18,16 +18,18 @@
                         </div>
 
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Personal Points</p>
+                            <p class="text-sm font-medium leading-6 text-gray-400">Points</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->personal_points }}</span>
+                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->points }}</span>
                             </p>
                         </div>
 
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Pass Up Points</p>
+                            <p class="text-sm font-medium leading-6 text-gray-400">Lifetime Rebates</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->pass_up_points }}</span>
+                                <span class="text-4xl font-semibold tracking-tight text-white">
+                                    ₱ {{ number_format(auth()->user()->rebates, 2, '.', ',') }}
+                                </span>
                             </p>
                         </div>
 
@@ -46,10 +48,11 @@
                     <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
 
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Builder Bonus</p>
+                            <p class="text-sm font-medium leading-6 text-gray-400">Available Rebates</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
-                                <marquee><span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->getBuilderBonus() }}
-                                        left</span></marquee>
+                                <marquee><span class="text-4xl font-semibold tracking-tight text-white">
+                                    ₱ {{ number_format(auth()->user()->getAvailableRebates(), 2, '.', ',') }}
+                                        </span></marquee>
                             </p>
                         </div>
 
@@ -63,7 +66,7 @@
                         </div>
 
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">3 Levels Partner</p>
+                            <p class="text-sm font-medium leading-6 text-gray-400">Network</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
                                 <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->downlines() }}</span>
                             </p>
@@ -85,7 +88,7 @@
                 </div>
             </div>
 
-            @if(auth()->user()->is_stockist)
+            {{-- @if(auth()->user()->is_stockist)
                 <div class="bg-gray-900 mt-2">
                     <div class="mx-auto max-w-7xl">
                         <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
@@ -98,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-            @endif
+            @endif --}}
         </div>
 
         <input style="visibility: hidden;" id="referral-link" type="text" value="{{ auth()->user()->referral_link }}">

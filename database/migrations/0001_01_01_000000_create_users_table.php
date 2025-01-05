@@ -33,6 +33,8 @@ return new class extends Migration
             $table->bigInteger('claimed_points')->default(0);
             $table->bigInteger('pass_up_points')->default(0);
             $table->bigInteger('personal_points')->default(0);
+            $table->decimal('rebates', 12, 2)->default(0);
+            $table->decimal('claimed_rebates', 12, 2)->default(0);
             $table->timestamps();
         });
 

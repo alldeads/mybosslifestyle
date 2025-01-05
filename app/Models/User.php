@@ -11,11 +11,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable implements FilamentUser, HasName
 {
     use HasFactory, Notifiable, SoftDeletes;
 
+    public const FIRST_LEVEL_REBATE = 0.07;
+    public const SECOND_LEVEL_REBATE = 0.05;
     /**
      * The attributes that are mass assignable.
      *
@@ -38,7 +41,9 @@ class User extends Authenticatable implements FilamentUser, HasName
         'stockist_points',
         'claimed_points',
         'personal_points',
-        'pass_up_points'
+        'pass_up_points',
+        'rebates',
+        'claimed_rebates',
     ];
 
     /**
@@ -153,7 +158,7 @@ class User extends Authenticatable implements FilamentUser, HasName
         return number_format($total, 2, '.', ',');
     }
 
-    public static function triggerPassUp($user_id, $points, $level=3,)
+    public static function triggerRebates($user_id, $quantity)
     {
         $user = User::find($user_id);
 
@@ -161,9 +166,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $userPoints = (int) $user->personal_points;
+        $userPoints = (int) $user->points;
 
-        $user->update(['personal_points' => $userPoints + $points]);
+        $user->update(['points' => $userPoints + $quantity]);
 
         // First Level
         $firstUser = $user->parent;
@@ -172,9 +177,12 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $firstUserPoints = (int) $firstUser->pass_up_points;
+        $total = $quantity * 150;
 
-        $firstUser->update(['pass_up_points' => $firstUserPoints + $points]);
+        $firstUserPoints = (int) $firstUser->rebates;
+
+        Log::info('Total: ' . $total);
+        $firstUser->update(['rebates' => $firstUserPoints + ($total * User::FIRST_LEVEL_REBATE)]);
 
         // Second Level
         $secondUser = $firstUser->parent;
@@ -183,20 +191,9 @@ class User extends Authenticatable implements FilamentUser, HasName
             return;
         }
 
-        $secondUserPoints = (int) $secondUser->pass_up_points;
+        $secondUserPoints = (int) $secondUser->rebates;
 
-        $secondUser->update(['pass_up_points' => $secondUserPoints + $points]);
-
-        // Third Level
-        $thirdUser = $secondUser->parent;
-
-        if (!$thirdUser) {
-            return;
-        }
-
-        $thirdUserPoints = (int) $thirdUser->pass_up_points;
-
-        $thirdUser->update(['pass_up_points' => $thirdUserPoints + $points]);
+        $secondUser->update(['rebates' => $secondUserPoints + ($total * User::SECOND_LEVEL_REBATE)]);
 
         return;
     }
@@ -210,8 +207,15 @@ class User extends Authenticatable implements FilamentUser, HasName
 
     public function getAvailablePoints()
     {
-        $points = ($this->personal_points + $this->pass_up_points) - $this->claimed_points;
+        $points = ($this->points + $this->pass_up_points) - $this->claimed_points;
 
         return $points < 0 ? 0 : $points;
+    }
+
+    public function getAvailableRebates()
+    {
+        $rebates = $this->rebates - $this->claimed_rebates;
+
+        return $rebates < 0 ? 0 : $rebates;
     }
 }

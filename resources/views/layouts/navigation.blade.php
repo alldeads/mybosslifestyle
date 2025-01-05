@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('genealogy')" :active="request()->routeIs('genealogy')">
                         {{ __('Genealogy') }}
                     </x-nav-link>
+                    {{-- <x-nav-link :href="route('encash')" :active="request()->routeIs('encash')">
+                        {{ __('Encash') }}
+                    </x-nav-link> --}}
                     @if (auth()->user()->is_stockist)
                     <x-nav-link :href="route('stockist')" :active="request()->routeIs('stockist')">
                         {{ __('Stockist') }}

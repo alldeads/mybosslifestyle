@@ -21,7 +21,6 @@ class RewardsController extends Controller
         $reward = Item::findOrFail($item);
         $user = auth()->user();
 
-
         if (!is_null($reward)) {
             Redeem::create([
                 'reference_id' => "R-" . uniqid(),

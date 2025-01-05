@@ -46,7 +46,7 @@ class StockistController extends Controller
             ]);
 
             // Trigger pass up points
-            User::triggerPassUp($user->id, $request->points);
+            User::triggerRebates($user->id, $request->points);
 
             flash()->success("User {$request->account_number} has been successfully credited {$request->points} point/s.");
         } catch (\Exception $e) {

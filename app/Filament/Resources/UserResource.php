@@ -81,7 +81,10 @@ class UserResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('referral')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('personal_points')
+                Tables\Columns\TextColumn::make('points')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('rebates')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_admin')

@@ -111,7 +111,7 @@ class TransactionResource extends Resource
                         }
 
                         if ($record->status == "pending" && $data['status'] == "paid") {
-                            User::triggerPassUp($record->user_id, $data['points'] ?? 1);
+                            User::triggerRebates($record->user_id, $data['quantity'] ?? 1);
                         }
 
                         $record->update($data);
