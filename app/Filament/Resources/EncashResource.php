@@ -59,14 +59,23 @@ class EncashResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('user.name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('rebates')->label('Claimed Rebates'),
+                Tables\Columns\TextColumn::make('status')
+                    ->color(fn(string $state): string => match ($state) {
+                        'pending' => 'warning',
+                        'fulfilled' => 'success',
+                        'cancelled' => 'danger',
+                        'hold' => 'primary',
+                    }),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
