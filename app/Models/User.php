@@ -111,7 +111,7 @@ class User extends Authenticatable implements FilamentUser, HasName
 
     public function getReferralLinkAttribute()
     {
-        return "https://mybosslifestyle.com/register?referral={$this->referral}";
+        return "https://myfamguard.com/register?referral={$this->referral}";
     }
 
     public function downlines()
