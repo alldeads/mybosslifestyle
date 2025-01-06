@@ -13,19 +13,28 @@ class ItemSeeder extends Seeder
     public function run(): void
     {
         Item::create([
-            'name' => '5 Kilos Ganador Rice',
-            'image' => 'items/1.jpg',
-            'description' => '5 Kilos Ganador Rice',
-            'points' => 30,
+            'name' => '100 Pesos SM Gift Certificate',
+            'image' => 'items/9.jpg',
+            'description' => '100 Pesos SM Gift Certificate',
+            'points' => 8,
             'quantity' => 9999,
             'status' => 'active'
         ]);
 
         Item::create([
-            'name' => '1k Sodexo Gift Certificate',
+            'name' => '5 Kilos Ganador Rice',
+            'image' => 'items/1.jpg',
+            'description' => '5 Kilos Ganador Rice',
+            'points' => 25,
+            'quantity' => 9999,
+            'status' => 'active'
+        ]);
+
+        Item::create([
+            'name' => '800 Pesos SM Gift Certificate',
             'image' => 'items/2.jpg',
-            'description' => '1k Sodexo Gift Certificate',
-            'points' => 60,
+            'description' => '800 Pesos SM Gift Certificate',
+            'points' => 50,
             'quantity' => 9999,
             'status' => 'active'
         ]);
