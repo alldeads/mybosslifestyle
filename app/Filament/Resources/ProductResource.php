@@ -33,6 +33,12 @@ class ProductResource extends Resource
                     ->numeric()
                     ->default(0.00)
                     ->prefix('₱'),
+                Forms\Components\TextInput::make('dprice')
+                    ->label('Distributor Price')
+                    ->required()
+                    ->numeric()
+                    ->default(0.00)
+                    ->prefix('₱'),
                 Forms\Components\TextInput::make('quantity')
                     ->required()
                     ->numeric()
@@ -49,6 +55,10 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
+                    ->prefix('₱')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('dprice')
+                    ->label('Distributor Price')
                     ->prefix('₱')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')

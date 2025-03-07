@@ -23,6 +23,8 @@ class EncashResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static bool $isDiscovered = false;
+
     public static function form(Form $form): Form
     {
         return $form

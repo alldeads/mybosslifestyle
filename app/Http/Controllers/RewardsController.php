@@ -22,18 +22,18 @@ class RewardsController extends Controller
         $user = auth()->user();
 
         if (!is_null($reward)) {
-            Redeem::create([
-                'reference_id' => "R-" . uniqid(),
-                'item_id' => $reward->id,
-                'user_id' => auth()->id(),
-                'quantity' => 1,
-                'points' => $reward->points,
-                'status' => 'pending'
-            ]);
-
             $currentPoints = $user->getAvailablePoints();
 
             if ($currentPoints >= $reward->points) {
+                Redeem::create([
+                    'reference_id' => "R-" . uniqid(),
+                    'item_id' => $reward->id,
+                    'user_id' => auth()->id(),
+                    'quantity' => 1,
+                    'points' => $reward->points,
+                    'status' => 'pending'
+                ]);
+
                 $user->update([
                     'claimed_points' => $user->claimed_points + $reward->points
                 ]);

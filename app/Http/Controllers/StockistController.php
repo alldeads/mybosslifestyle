@@ -34,7 +34,7 @@ class StockistController extends Controller
             ]);
 
             Transaction::create([
-                'reference_id' => uniqid(),
+                'reference_id' => uniqid('S-'),
                 'user_id' => $user->id ?? 1,
                 'total' => 0,
                 'quantity' => $request->points,
@@ -46,7 +46,7 @@ class StockistController extends Controller
             ]);
 
             // Trigger pass up points
-            User::triggerRebates($user->id, $request->points);
+            User::triggerPassUp($user->id, $request->points);
 
             flash()->success("User {$request->account_number} has been successfully credited {$request->points} point/s.");
         } catch (\Exception $e) {

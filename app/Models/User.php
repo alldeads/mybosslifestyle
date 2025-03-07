@@ -198,6 +198,42 @@ class User extends Authenticatable implements FilamentUser, HasName
         return;
     }
 
+    public static function triggerPassUp($user_id, $quantity)
+    {
+        $user = User::find($user_id);
+
+        if (!$user) {
+            return;
+        }
+
+        $userPoints = (int) $user->points;
+        $userPersonalPoints = (int) $user->personal_points;
+
+        $user->update([
+            'points' => $userPoints + $quantity,
+            'personal_points' => $userPersonalPoints + $quantity
+        ]);
+
+        // Check if eligible for pass up
+        // if ($user->direct_referrals()->count() >= 8) {
+
+            // First Level
+            $firstUser = $user->parent;
+
+            if (!$firstUser) {
+                return;
+            }
+
+            $firstUserPassUpPoints = (int) $firstUser->pass_up_points;
+            $firstUserPoints = (int) $firstUser->points;
+
+            $firstUser->update([
+                'points' => $firstUserPoints + $quantity,
+                'pass_up_points' => $firstUserPassUpPoints + $quantity
+            ]);
+        // }
+    }
+
     public function getBuilderBonus()
     {
         $referrals = $this->direct_referrals->count();
@@ -207,7 +243,7 @@ class User extends Authenticatable implements FilamentUser, HasName
 
     public function getAvailablePoints()
     {
-        $points = ($this->points + $this->pass_up_points) - $this->claimed_points;
+        $points = ($this->personal_points + $this->pass_up_points) - $this->claimed_points;
 
         return $points < 0 ? 0 : $points;
     }

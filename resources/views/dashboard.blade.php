@@ -25,50 +25,11 @@
                         </div>
 
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Lifetime Rebates</p>
-                            <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">
-                                    ₱ {{ number_format(auth()->user()->rebates, 2, '.', ',') }}
-                                </span>
-                            </p>
-                        </div>
-
-                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Company Share Bonus</p>
-                            <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">₱{{ number_format($setting->share_bonus, 0, ',') }}</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-gray-900 mt-2">
-                <div class="mx-auto max-w-7xl">
-                    <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
-
-                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Available Rebates</p>
-                            <p class="mt-2 flex items-baseline gap-x-2">
-                                <marquee><span class="text-4xl font-semibold tracking-tight text-white">
-                                    ₱ {{ number_format(auth()->user()->getAvailableRebates(), 2, '.', ',') }}
-                                        </span></marquee>
-                            </p>
-                        </div>
-
-                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">Direct Referrals</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
                                 <span class="text-4xl font-semibold tracking-tight text-white">
                                     {{ auth()->user()->direct_referrals()->count() }}
                                 </span>
-                            </p>
-                        </div>
-
-                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Network</p>
-                            <p class="mt-2 flex items-baseline gap-x-2">
-                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->downlines() }}</span>
                             </p>
                         </div>
 
@@ -88,20 +49,38 @@
                 </div>
             </div>
 
-            {{-- @if(auth()->user()->is_stockist)
-                <div class="bg-gray-900 mt-2">
-                    <div class="mx-auto max-w-7xl">
-                        <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
-                            <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                                <p class="text-sm font-medium leading-6 text-gray-400">Points Credit</p>
-                                <p class="mt-2 flex items-baseline gap-x-2">
-                                    <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->stockist_points }}</span>
-                                </p>
-                            </div>
+            <div class="bg-gray-900 mt-2">
+                <div class="mx-auto max-w-7xl">
+                    <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
+
+                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                            <p class="text-sm font-medium leading-6 text-gray-400">Master Distributor</p>
+                            <p class="mt-2 flex items-baseline gap-x-2">
+                                <marquee><span class="text-4xl font-semibold tracking-tight text-white">
+                                    {{ number_format(auth()->user()->pass_up_points, 2, '.', ',') }}
+                                        </span></marquee>
+                            </p>
+                        </div>
+
+                        @if(auth()->user()->is_stockist)
+                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                            <p class="text-sm font-medium leading-6 text-gray-400">Stockist Points</p>
+                            <p class="mt-2 flex items-baseline gap-x-2">
+                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->stockist_points
+                                    }}</span>
+                            </p>
+                        </div>
+                        @endif
+
+                        <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
+                            <p class="text-sm font-medium leading-6 text-gray-400">Network</p>
+                            <p class="mt-2 flex items-baseline gap-x-2">
+                                <span class="text-4xl font-semibold tracking-tight text-white">{{ auth()->user()->downlines() }}</span>
+                            </p>
                         </div>
                     </div>
                 </div>
-            @endif --}}
+            </div>
         </div>
 
         <input style="visibility: hidden;" id="referral-link" type="text" value="{{ auth()->user()->referral_link }}">

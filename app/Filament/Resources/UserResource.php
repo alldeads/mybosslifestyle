@@ -48,14 +48,20 @@ class UserResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
                     ->email()
+                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone')
                     ->tel()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('address')
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->hiddenOn('edit'),
                 Forms\Components\TextInput::make('personal_points')
-                    ->required()
+                    ->label('Personal Points')
+                    ->numeric()
+                    ->default(0),
+                Forms\Components\TextInput::make('pass_up_points')
+                    ->label('Pass Up Points')
                     ->numeric()
                     ->default(0),
                 Forms\Components\TextInput::make('stockist_points')
@@ -84,7 +90,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('points')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('rebates')
+                Tables\Columns\TextColumn::make('stockist_points')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_admin')

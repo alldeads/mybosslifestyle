@@ -10,6 +10,8 @@ use Filament\Forms;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Tables;
@@ -30,20 +32,38 @@ class TransactionResource extends Resource
             ->schema([
                 Forms\Components\Select::make('user_id')
                     ->label('User')
-                    ->options(User::all()->pluck('name', 'id'))
+                    ->options(fn() => User::all()->pluck('name', 'id'))
                     ->searchable()
+                    ->required()
                     ->columnSpan(2),
+
                 Repeater::make('items')
-                ->schema([
-                    Select::make('product_id')
-                        ->label('Product')
-                        ->options(Product::all()->pluck('name', 'id'))
-                        ->searchable()
-                        ->columnSpan(2),
-                    TextInput::make('price')->required(),
-                    TextInput::make('quantity')->required(),
-                ])
-                ->columnSpan(2),
+                    ->schema([
+                        Select::make('product_id')
+                            ->label('Product')
+                            ->options(fn() => Product::pluck('name', 'id'))
+                            ->searchable()
+                            ->reactive()
+                            ->afterStateUpdated(
+                                fn($state, callable $set) =>
+                                $set('price', Product::find($state)?->dprice ?? 0)
+                            )
+                            ->columnSpan(2),
+                        TextInput::make('price')
+                            ->required()
+                            ->numeric()
+                            ->readOnly(),
+                        TextInput::make('quantity')
+                            ->required()
+                            ->numeric()
+                            ->live()
+                            ->afterStateUpdated(fn ($state, Set $set, Get $get) => 
+                                $set('../../total', ($get('price') ?? 0) * $state)
+                            ),
+                    ])
+                    ->minItems(1)
+                    ->columnSpan(2),
+
                 Select::make('status')
                     ->options([
                         'pending' => 'Pending',
@@ -52,16 +72,8 @@ class TransactionResource extends Resource
                         'hold' => 'Hold',
                     ]),
                 Forms\Components\TextInput::make('total')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('quantity')
-                    ->numeric()
-                    ->hiddenOn('edit')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('points')
                     ->required()
-                    ->hiddenOn('edit')
-                    ->numeric()
-                    ->default(0)
+                    ->readOnly()
             ]);
     }
 
@@ -90,35 +102,7 @@ class TransactionResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                    ->using(function (Model $record, array $data): Model {
-
-                        $quantity = 0;
-                        $total = 0;
-                        $points = 0;
-
-                        if (isset($data['items']) && count($data['items']) > 0) {
-                            foreach($data['items'] as $item) {
-                                $quantity += $item['quantity'];
-                                $total += $item['price'] * $item['quantity'];
-                            }
-
-                            $points = $quantity;
-
-                            $data['quantity'] = $quantity;
-                            $data['points'] = $points;
-                            $data['total'] = $total;
-                        }
-
-                        if ($record->status == "pending" && $data['status'] == "paid") {
-                            User::triggerRebates($record->user_id, $data['quantity'] ?? 1);
-                        }
-
-                        $record->update($data);
-
-                        return $record;
-                    }),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
