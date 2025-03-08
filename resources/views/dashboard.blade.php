@@ -53,6 +53,7 @@
                 <div class="mx-auto max-w-7xl">
                     <div class="grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
                         
+                        @if(auth()->user()->direct_referrals()->count() >= 8)
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
                             <p class="text-sm font-medium leading-6 text-gray-400">Master Distributor</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
@@ -63,6 +64,7 @@
                                 </marquee>
                             </p>
                         </div>
+                        @endif
 
                         @if(auth()->user()->is_stockist)
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
