@@ -31,9 +31,9 @@ class ItemSeeder extends Seeder
         ]);
 
         Item::create([
-            'name' => '1k Pesos SM Gift Certificate',
+            'name' => '800 Pesos SM Gift Certificate',
             'image' => 'items/3.jpg',
-            'description' => '1k Pesos SM Gift Certificate',
+            'description' => '800 Pesos SM Gift Certificate',
             'points' => 50,
             'quantity' => 9999,
             'status' => 'active'
