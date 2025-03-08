@@ -45,6 +45,7 @@ class CodeResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->query(Code::query()->orderBy('created_at', 'desc'))
             ->columns([
                 Tables\Columns\TextColumn::make('code')
                     ->sortable()

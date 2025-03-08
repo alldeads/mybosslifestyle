@@ -14,7 +14,7 @@ class CodeSeeder extends Seeder
     public function run(): void
     {
         Code::factory(250)->create();
-        // Code::factory(250)->create();
+        Code::factory(250)->create();
         // Code::factory(250)->create();
         // Code::factory(250)->create();
     }
