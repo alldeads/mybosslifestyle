@@ -30,15 +30,15 @@ class CodeResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->readOnlyOn('edit'),
-                Forms\Components\TextInput::make('user')
-                    ->readOnlyOn('edit')
-                    ->formatStateUsing(fn($record) => $record->user->name ?? 'N/A'),
-                Forms\Components\DateTimePicker::make('used_at')
-                    ->readOnlyOn('edit'),
+                // Forms\Components\TextInput::make('user')
+                //     ->readOnlyOn('edit')
+                //     ->formatStateUsing(fn($record) => $record->user->name ?? 'N/A'),
+                // Forms\Components\DateTimePicker::make('used_at')
+                //     ->readOnlyOn('edit'),
                 Forms\Components\Select::make('stockist_id')
                     ->label('Stockist')
                     ->options(User::where('is_stockist', true)->get()->pluck('name', 'id'))
-                    ->searchable(),
+                    ->searchable()
             ]);
     }
 
