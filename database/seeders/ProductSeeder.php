@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
             'image' => 'products/famguard.jpg',
             'bio' => 'Your personal self protective measure to combat mosquito and the diseases it carry.',
             'description' => 'Your personal self protective measure to combat mosquito and the diseases it carry.',
-            'price' => 150,
+            'price' => 200,
             'dprice' => 150,
             'quantity' => 9999,
             'status' => 'active'
