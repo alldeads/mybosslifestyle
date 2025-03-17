@@ -254,4 +254,9 @@ class User extends Authenticatable implements FilamentUser, HasName
 
         return $rebates < 0 ? 0 : $rebates;
     }
+
+    public static function admin()
+    {
+        return User::find(1);
+    }
 }

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Redeem;
+use App\Models\User;
+use App\Notifications\RedeemNotification;
 use Illuminate\Http\Request;
+use Filament\Notifications\Notification;
 
 class RewardsController extends Controller
 {
@@ -37,6 +40,12 @@ class RewardsController extends Controller
                 $user->update([
                     'claimed_points' => $user->claimed_points + $reward->points
                 ]);
+
+                User::admin()->notify(new RedeemNotification([
+                    'user' => $user->name,
+                    'item' => $reward->name,
+                    'points' => $reward->points,
+                ]));
 
                 flash()->success("You have successfully redeemed the " . $reward->name);
             } else {
