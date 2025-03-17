@@ -55,7 +55,7 @@
                         
                         @if(auth()->user()->direct_referrals()->count() >= 8)
                         <div class="bg-gray-900 px-4 py-6 sm:px-6 lg:px-8">
-                            <p class="text-sm font-medium leading-6 text-gray-400">Master Distributor</p>
+                            <p class="text-sm font-medium leading-6 text-gray-400">Executive Distributor</p>
                             <p class="mt-2 flex items-baseline gap-x-2">
                                 <marquee>
                                     <span class="text-4xl font-semibold tracking-tight text-white">
