@@ -61,6 +61,8 @@ class RedeemResource extends Resource
                         'cancelled' => 'danger',
                         'hold' => 'primary',
                     }),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
             ])
             ->filters([
                 //
