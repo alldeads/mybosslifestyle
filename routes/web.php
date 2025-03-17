@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EncashController;
 use App\Http\Controllers\GenealogyController;
+use App\Http\Controllers\PointHistoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RewardsController;
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('rewards', [RewardsController::class, 'index'])->name('rewards');
     Route::post('rewards', [RewardsController::class, 'store'])->name('rewards.claim');
     Route::get('history', [RewardsController::class, 'history'])->name('history');
+
+    Route::get('points-history', [PointHistoryController::class, 'index'])->name('points.history');
 
     Route::get('cart', [CartController::class, 'index'])->name('cart');
     Route::post('cart', [CartController::class, 'submit'])->name('cart.submit');

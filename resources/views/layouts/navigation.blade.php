@@ -37,7 +37,10 @@
                     </x-nav-link>
                     @endif
                     <x-nav-link :href="route('history')" :active="request()->routeIs('history')">
-                        {{ __('History') }}
+                        {{ __('Redeem History') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('points.history')" :active="request()->routeIs('points.history')">
+                        {{ __('Point History') }}
                     </x-nav-link>
                 </div>
             </div>
