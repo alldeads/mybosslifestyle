@@ -235,10 +235,11 @@ class User extends Authenticatable implements FilamentUser, HasName
             ]);
         }
 
+        // First Level
+        $firstUser = $user->parent;
+
         // Check if eligible for pass up
-        if ($user->direct_referrals()->count() >= 8) {
-            // First Level
-            $firstUser = $user->parent;
+        if ($firstUser->direct_referrals()->count() >= 8) {
 
             if (!$firstUser) {
                 return;
