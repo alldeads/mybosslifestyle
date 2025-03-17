@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\PointHistory;
 use App\Models\Redeem;
 use App\Models\User;
 use App\Notifications\RedeemNotification;
@@ -46,6 +47,15 @@ class RewardsController extends Controller
                     'item' => $reward->name,
                     'points' => $reward->points,
                 ]));
+
+                PointHistory::create([
+                    'reference_id' => uniqid('PP-'),
+                    'user_id' => $user->id,
+                    'points' => $reward->points,
+                    'running' => $user->getAvailablePoints(),
+                    'description' => "Redeemed {$reward->name}",
+                    'created_by' => $user->id
+                ]);
 
                 flash()->success("You have successfully redeemed the " . $reward->name);
             } else {

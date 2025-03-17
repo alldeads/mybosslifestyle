@@ -198,7 +198,7 @@ class User extends Authenticatable implements FilamentUser, HasName
         return;
     }
 
-    public static function triggerPassUp($user_id, $quantity)
+    public static function triggerPassUp($user_id, $quantity, $stockist)
     {
         $user = User::find($user_id);
 
@@ -214,9 +214,29 @@ class User extends Authenticatable implements FilamentUser, HasName
             'personal_points' => $userPersonalPoints + $quantity
         ]);
 
-        // Check if eligible for pass up
-        // if ($user->direct_referrals()->count() >= 8) {
+        if ($stockist !== null) {
+            PointHistory::create([
+                'reference_id' => uniqid('PP-'),
+                'user_id' => $user->id,
+                'points' => $quantity,
+                'running' => $user->getAvailablePoints(),
+                'description' => 'Manually loaded from stockist.',
+                'stockist_id' => $stockist->id,
+                'created_by' => $user->id
+            ]);
+        } else {
+            PointHistory::create([
+                'reference_id' => uniqid('PP-'),
+                'user_id' => $user->id,
+                'points' => $quantity,
+                'running' => $user->getAvailablePoints(),
+                'description' => 'Purchase Transaction',
+                'created_by' => $user->id
+            ]);
+        }
 
+        // Check if eligible for pass up
+        if ($user->direct_referrals()->count() >= 8) {
             // First Level
             $firstUser = $user->parent;
 
@@ -231,7 +251,16 @@ class User extends Authenticatable implements FilamentUser, HasName
                 'points' => $firstUserPoints + $quantity,
                 'pass_up_points' => $firstUserPassUpPoints + $quantity
             ]);
-        // }
+
+            PointHistory::create([
+                'reference_id' => uniqid('PP-'),
+                'user_id' => $firstUser->id,
+                'points' => $quantity,
+                'running' => $firstUser->getAvailablePoints(),
+                'description' => "Pass up triggered from {$user->name}",
+                'created_by' => $firstUser->id
+            ]);
+        }
     }
 
     public function getBuilderBonus()

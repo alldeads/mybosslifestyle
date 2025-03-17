@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('reference_id')->nullable();
             $table->bigInteger('user_id')->nullable();
             $table->bigInteger('created_by')->nullable();
+            $table->bigInteger('stockist_id')->nullable();
             $table->bigInteger('points')->nullable();
+            $table->bigInteger('running')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
         });

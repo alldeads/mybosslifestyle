@@ -36,7 +36,7 @@ class ManageTransactions extends ManageRecords
 
                     $data['reference_id'] = uniqid('PO-');
 
-                    User::triggerPassUp($data['user_id'], $data['quantity'] ?? 1);
+                    User::triggerPassUp($data['user_id'], $data['quantity'] ?? 1, null);
 
                     return $model::create($data);
                 }),
