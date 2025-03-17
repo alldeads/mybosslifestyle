@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Genealogy') }}
+            {{ __('Rewards') }}
         </h2>
     </x-slot>
 
@@ -9,6 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white">
                 <div class="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
+
+                    <div class="flex justify-center p-4 mb-4 text-yellow-800 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <div>
+                            <span class="font-semibold text-yellow-800">Items will be available for release 7 to 15 days after redemption.</span>
+                        </div>
+                    </div>
+
                     <div class="flex items-center justify-between px-4 sm:px-6 lg:px-0">
                         <h2 class="text-2xl font-bold tracking-tight text-gray-900">Rewards</h2>
 
@@ -43,8 +50,8 @@
 
                                                 @if(auth()->user()->getAvailablePoints() >= $reward->points)
                                                     <div class="mt-6">
-                                                        <a onclick="event.preventDefault(); this.closest('form').submit();"
-                                                            class="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 cursor-pointer">
+                                                        <a href="#" class="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 cursor-pointer"
+                                                            onclick="confirmClaim(event, this)">
                                                             Claim<span class="sr-only">, {{ $reward->name }}</span>
                                                         </a>
                                                     </div>
@@ -61,5 +68,24 @@
         </div>
     </div>
 
-
+    @section('scripts')
+        <script>
+            function confirmClaim(event, element) {
+                    event.preventDefault();
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "Do you want to claim this reward?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, claim it!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            element.closest('form').submit();
+                        }
+                    });
+                }
+        </script>
+    @endsection
 </x-app-layout>
