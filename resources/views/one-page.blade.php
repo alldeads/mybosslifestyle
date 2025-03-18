@@ -259,31 +259,31 @@
     <section id="aboutus" class="single-feature padding">
         <div class="container">
             <div class="row d-flex align-items-center">
-                <div class="col-lg-6 col-md-7 col-sm-7 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
-                    <div class="heading-title mb-4">
+                <div class="col-12 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
+                    <div class="heading-title mb-4 text-center">
                         <h2 class="darkcolor font-normal bottom30"><span class="defaultcolor">Mission</span></h2>
                     </div>
-                    <p class="bottom35">Our mission is to empower families and communities to enjoy the outdoors, free from the threat of mosquitoes and
+                    <p class="bottom35 text-center">Our mission is to empower families and communities to enjoy the outdoors, free from the threat of mosquitoes and
                     mosquito-borne illnesses. </p>
                 </div>
-                <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
+                {{-- <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
                     <div class="image"><img alt="SEO" src="images/aboutus.png"></div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-lg-6 col-md-7 col-sm-7 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
-                    <div class="heading-title mb-4">
+        <div class="container mt-5">
+            <div class="row d-flex justify-center align-items-center">
+                <div class="col-12 text-sm-start text-center wow fadeInLeft" data-wow-delay="300ms">
+                    <div class="heading-title mb-4 text-center">
                         <h2 class="darkcolor font-normal bottom30"><span class="defaultcolor">Vision</span></h2>
                     </div>
-                    <p class="bottom35">Empowering a world where everyone can live, and children can play and thrive without the threat of mosquitoes and
+                    <p class="bottom35 text-center">Empowering a world where everyone can live, and children can play and thrive without the threat of mosquitoes and
                     mosquito-borne illnesses.</p>
                 </div>
-                <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
+                {{-- <div class="col-lg-5 offset-lg-1 col-md-5 col-sm-5 wow fadeInRight" data-wow-delay="300ms">
                     <div class="image"><img alt="SEO" src="images/aboutus.png"></div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
