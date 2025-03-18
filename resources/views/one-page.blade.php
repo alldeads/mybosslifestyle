@@ -135,7 +135,7 @@
                         data-fsmasterspeed="1500" class="banner-overlay">
                         <!-- MAIN IMAGE -->
                         <div class="overlay overlay-dark opacity-6"></div>
-                        <img src="images/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
+                        <img src="images/slider-99.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
                             data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="10" data-no-retina>
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption tp-resizeme font-bold z-index-1 font-light2 text-capitalize whitecolor"
